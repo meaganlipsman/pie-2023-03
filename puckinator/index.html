@@ -91,35 +91,67 @@
 			<section>
 				<header>
 					<h3>Mechanical Design</h3>
-					<p>This is the subtitle for this particular heading</p>
+					<p>Overview of Puckinator Mechanical Systems</p>
 				</header>
-				<h6>Gearbox</h6>
-				<p>We used NEMA 23 stepper motors for our arm mechanism, but these motors did not produce enough
-					torque for our needs. This required a gearbox for our motors. We have a 3:1 gearbox ratio
-					using 3D printed PETG herringbone gears. Herringbone gears _______. To reduce friction with
-					our shaft, we have shoulder bearings at each plate interface for our gearbox. Our shafts
-					are 6061 aluminum that have a threaded hole for the large gear interface and arms are
-					attached using a set screw. Our smaller gears are mounted to our stepper motors using
-					have of a spider coupling. We used a press fit with a spider coupling to allow us to
-					clamp to the shaft of the stepper motor. Our gearbox has one inch of clearance between
-					the plates, maintained by 1 in alumnium standoffs fabricated from 3/8” 6061 aluminum
-					rod stock. We use 1/4-20” bolts to constrain our gearbox.
-				</p>
+				<div style="text-align: center;">
+					<img width="700" src="images/GearboxAssemRender.png" alt="Gearbox Render">
+				</div>
+				<h5>Gearbox</h5>
+				<table width="800">
+					<tr>
+						<td align="left" style="vertical-align:top;">
+							<span width="400">We used NEMA 23 stepper motors for our arm mechanism, but these motors did
+								not produce
+								enough
+								torque for our needs. This required a gearbox for our motors. We have a 3:1 gearbox
+								ratio
+								using 3D printed PETG herringbone gears. Herringbone gears can carry more load than
+								standard gears. Since we wanted to be able to print our gears, it was crucial that we
+								achieved a strong gear. To reduce friction
+								with
+								our shaft, we have shoulder bearings at each plate interface for our gearbox. Our shafts
+								are 6061 aluminum that have a threaded hole for the large gear interface and arms are
+								attached using a set screw. Our smaller gears are mounted to our stepper motors using
+								have of a spider coupling. We used a press fit with a spider coupling to allow us to
+								clamp to the shaft of the stepper motor. Our gearbox has one inch of clearance between
+								the plates, maintained by 1 in alumnium standoffs fabricated from 3/8” 6061 aluminum
+								rod stock. We use 1/4-20” bolts to constrain our gearbox.
+							</span>
+						</td>
+						<td align="right">
+							<img width="400" src="images/GearboxAssemGif.gif" alt="Gearbox Assembly Collapse">
+						</td>
+					</tr>
+				</table>
+				<hr>
 				<div style="text-align: center;">
 					<img src="images/ArmRender1.png" alt="Arm Render">
 				</div>
-				<h6>Arm Assembly</h6>
-				<p>We decided to design a parallel SCARA arm to move the striker across the table. This arm uses two
-					two motors and can move along two axes. The arm interfaces with the output shafts of the gearbox
-					using a set screw. The joint between the arms contains a ball bearing and a thrust bearing. The
-					ball bearing reduces the friction between the arms and thrust bearing for the axial loads on the
-					joint. This is all retained using tapped piece of aluminum with a bolt through it. Mounted to our
-					gearbox are two limit switches. These allow us to home our arm so we are referencing from the same
-					starting point at the beginning of each game.
-				</p>
-				<div style="text-align: center;">'
-					<img width="750" src="images/ArmAssemCollapse.gif" alt="Arm Assembly">
-				</div>
+				<h5>Arm Assembly</h5>
+				<table width="800">
+					<tr>
+						<td align="right" style="vertical-align:center;">
+							<img width="400" src="images/ArmAssemblyGif.gif" alt="Arm Assembly Collapse">
+						</td>
+						<td align="right" style="vertical-align:top;">
+							<span width="400">We decided to design a parallel SCARA arm to move the striker across the
+								table. This arm uses two
+								two motors and can move along two axes. The arm interfaces with the output shafts of the
+								gearbox
+								using a set screw. The joint between the arms contains a ball bearing and a thrust
+								bearing. The
+								ball bearing reduces the friction between the arms and thrust bearing for the axial
+								loads on the
+								joint. This is all retained using tapped piece of aluminum with a bolt through it.
+								Mounted to our
+								gearbox are two limit switches. These allow us to home our arm so we are referencing
+								from the same
+								starting point at the beginning of each game.
+							</span>
+						</td>
+					</tr>
+
+				</table>
 			</section>
 
 			<section>
@@ -386,7 +418,8 @@
 			</section>
 
 			<section class="feature left">
-				<a href="#" class="image icon solid fa-signal"><img src="images/pic01.jpg" alt="" /></a>
+				<a href="#" class="image icon solid fa-signal"><img src="images/BenTarr.jpg" alt=""
+						style="object-fit:cover" /></a>
 				<div class="content">
 					<h3>Ben Tarr</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
@@ -394,7 +427,7 @@
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="#" class="image icon solid fa-signal"><img src="images/pic01.jpg" alt="" /></a>
+				<a href="#" class="image icon solid fa-signal"><img src="images/ElinONeill.jpg" alt="" /></a>
 				<div class="content">
 					<h3>Elin O'Neill</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
@@ -402,7 +435,7 @@
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="#" class="image icon solid fa-signal"><img src="images/pic01.jpg" alt="" /></a>
+				<a href="#" class="image icon solid fa-signal"><img src="images/LilyDao.JPG" alt="" /></a>
 				<div class="content">
 					<h3>Lily Dao</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
