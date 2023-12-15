@@ -45,77 +45,187 @@
 
 		<div class="box alt container">
 			<section class="feature left">
-				<a href="#" class="image icon solid fa-signal"><img src="images/Logo Photo.jpg" alt="" /></a>
+				<img src="images/Logo Photo.jpg" alt="Puckinator Logo" style="vertical-align: top;">
 				<div class="content">
-					<h3>What is Our Project?</h3>
+					<h3 style="vertical-align: top;">What is Our Project?</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
 						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 				</div>
 			</section>
-			<section class="feature right">
-				<a href="#" class="image icon solid fa-code"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="content">
-					<h3>System Overview</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
+			<!--
+			<section class=" feature right">
+						<img src="images/System Overview.PNG" alt="Puckinator System Overview"
+							class="image icon solid fa-signal">
+						<div class="content">
+							<h3>System Overview</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
+								penatibus.
+								Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.
+							</p>
+						</div>
 			</section>
-			<!-- <section class="feature left">
+			<section class="feature left">
 				<a href="#" class="image icon solid fa-mobile-alt"><img src="images/pic03.jpg" alt="" /></a>
-				 <div class="content">
+				<div class="content">
 					<h3>Budget</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
 						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 				</div> -->
+		</div>
+
+		<div class="box alt container">
+			<section class="feature left">
+				<img src="images/Logo Photo.jpg" alt="Puckinator Logo" style="vertical-align: top;"
+					class="image icon solid fa-mobile-alt">
+				<div class="content">
+					<h3 style="vertical-align: top;">Sprint 1</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+				</div>
+			</section>
+			<section class=" feature right">
+				<img src="images/System Overview.PNG" alt="Puckinator System Overview"
+					class="image icon solid fa-signal">
+				<div class="content">
+					<h3>Sprint 2</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
+						penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.
+					</p>
+				</div>
+			</section>
+			<section class="feature left">
+				<img src="images/pic03.jpg" alt="" class="image icon solid fa-mobile-alt">
+				<div class="content">
+					<h3>Sprint 3</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+				</div>
 			</section>
 		</div>
 
-		!--
+
+		<h3>System Overview</h3>
+		<div style="text-align: center;">
+			<img width="1100" src="images/System Overview.PNG" alt="Puckinator System Overview">
+		</div>
+		<br>
 		<div class="box container">
 			<header>
-				<h2>Design Choices</h2>
+				<h1>Design Choices</h1>
 			</header>
 			<section>
 				<header>
 					<h3>Electrical Design</h3>
-					<p>This is the subtitle for this particular heading</p>
+					<p>Overview of Puckinator Electrical Systems</p>
 				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
-					<em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.
+				<h4>Schematic</h4>
+				<div style="text-align: center;">
+					<img width="800" src="images/Schematic.png" alt="Electrical System Schematic">
+				</div>
+				<hr>
+				<h4>Stepper Motors and Motor Drivers Wiring</h4>
+				<p class="indent">Our Main Electrical System involved 2 stepper motors that each interfaced with their
+					own motor
+					drivers and an Arduino Uno. We used 1.26 Nm Nema 23 stepper motors (rated 2.8/4.2 amps) and
+					TB6600
+					Stepper Motor Drivers (rated for 4 amps and 9-42 volts). We chose these specific motors because
+					they
+					would supply enough torque to move our arm as quickly as we needed to. Additionally, we chose
+					the
+					TB6600 Stepper Motor Drivers because it matched the amps that our motors needed.
+					<br>
+					The stepper drivers connected to the stepper motors, our DC power supply, and our Arduino in the
+					following ways:
+				</p>
+				<h6 style="text-align: left;">How it's connected to the motors: </h6>
+				<p class="indent">
+					Our stepper motors were 4 wire motors so each wire is connected to an end of one of the coils
+					inside
+					the motor. This means that there were two pairs of wires: A+ and A- which were connected to one
+					of
+					the coils, and B+ and B- which were connected to the other coil. Through research and testing,
+					we
+					determined that the red and blue wires and the black and green wires were paired. These pairs,
+					respectively, were wired directly to the A+, A-, B+, and B- spots on the stepper driver.
+				</p>
+				<h6 style="text-align: left;">How it's connected to the DC power supply: </h6>
+				<p class="indent">
+					The stepper drivers were powered by an external AC to DC power supply. The VCC and GND spots on
+					the
+					stepper drivers were connected to separate power and ground ports on the power supply. The power
+					supply was set so that each stepper driver could receive 18 volts and about 4 amps.
+				</p>
+				<h6 style="text-align: left;">How it's connected to the Arduino: </h6>
+				<p class="indent">
+					Finally, we chose to use an Arduino Uno to control the enable, direction, and pulse(step) pins
+					on
+					the stepper driver. To ensure that all of the grounds were the same, we connected the ENA-,
+					DIR-,
+					and PUL- to the ground of the Arduino. ENA+, DIR+, and PUL+ for both motor drivers needed to be
+					connected to digital pins on the Arduino. PUL+, DIR +, ENA+ for stepper driver 1 were connected
+					to
+					Arduino pins D5, D6, and D7 respectively. PUL+, DIR +, ENA+ for stepper driver 2 were connected
+					to
+					Arduino pins D8, D9, and D10 respectively.
+				</p>
+				<hr>
+				<h4>Homing Limit Switches and E-Stop</h4>
+				<p class="indent">We incorporated 2 end stops into our project so that we could home our stepper motors.
+					We used
+					limit
+					switches as our end stops. Both end stop switches had power and ground that were connected to
+					the
+					power and ground from the Arduino. The signal lines for both end stop switches needed to be
+					connected to digital pins of the Arduino. As such, the signal line for end stop switch 1 and 2
+					were
+					connected to digital pins D11 and D12 respectively.
+					<br>
+					We also added an E-stop so that we could stop all movement of the arm should something go wrong.
+					For
+					this we used a large red push button and connected it an interrupt pin on the Arduino. The
+					interrupt
+					pin we used was digital pin D2 and connected it to one side of the button and grounded the other
+					side of the button.
 				</p>
 			</section>
-
+			<br>
 			<section>
 				<header>
 					<h3>Mechanical Design</h3>
 					<p>Overview of Puckinator Mechanical Systems</p>
 				</header>
+				<h4>Gearbox</h4>
 				<div style="text-align: center;">
 					<img width="700" src="images/GearboxAssemRender.png" alt="Gearbox Render">
 				</div>
-				<h5>Gearbox</h5>
+
 				<table width="800">
 					<tr>
 						<td align="left" style="vertical-align:top;">
-							<span width="400">We used NEMA 23 stepper motors for our arm mechanism, but these motors did
+							<span width="400" class="indent">We used NEMA 23 stepper motors for our arm mechanism, but
+								these motors
+								did
 								not produce
 								enough
 								torque for our needs. This required a gearbox for our motors. We have a 3:1 gearbox
-								ratio
+								reduction
 								using 3D printed PETG herringbone gears. Herringbone gears can carry more load than
-								standard gears. Since we wanted to be able to print our gears, it was crucial that we
+								standard gears. Since we wanted to be able to print our gears, it was crucial that
+								we
 								achieved a strong gear. To reduce friction
 								with
-								our shaft, we have shoulder bearings at each plate interface for our gearbox. Our shafts
-								are 6061 aluminum that have a threaded hole for the large gear interface and arms are
-								attached using a set screw. Our smaller gears are mounted to our stepper motors using
+								our shaft, we have shoulder bearings at each plate interface for our gearbox. Our
+								shafts
+								are 6061 aluminum that have a threaded hole for the large gear interface and arms
+								are
+								attached using a set screw. Our smaller gears are mounted to our stepper motors
+								using
 								have of a spider coupling. We used a press fit with a spider coupling to allow us to
-								clamp to the shaft of the stepper motor. Our gearbox has one inch of clearance between
+								clamp to the shaft of the stepper motor. Our gearbox has one inch of clearance
+								between
 								the plates, maintained by 1 in alumnium standoffs fabricated from 3/8” 6061 aluminum
-								rod stock. We use 1/4-20” bolts to constrain our gearbox.
+								rod stock. We use 1/4"-20 bolts to constrain our gearbox.
 							</span>
 						</td>
 						<td align="right">
@@ -124,25 +234,33 @@
 					</tr>
 				</table>
 				<hr>
+				<h4>Arm Assembly</h4>
 				<div style="text-align: center;">
 					<img src="images/ArmRender1.png" alt="Arm Render">
 				</div>
-				<h5>Arm Assembly</h5>
+
 				<table width="800">
 					<tr>
 						<td align="right" style="vertical-align:center;">
 							<img width="400" src="images/ArmAssemblyGif.gif" alt="Arm Assembly Collapse">
 						</td>
 						<td align="right" style="vertical-align:top;">
-							<span width="400">We decided to design a parallel SCARA arm to move the striker across the
+							<span width="400" class="indent">We decided to design a parallel SCARA arm to move the
+								striker across
+								the
 								table. This arm uses two
-								two motors and can move along two axes. The arm interfaces with the output shafts of the
+								NEMA 23 stepper motors and can move along two axes. The arm interfaces with the
+								output
+								shafts of the
 								gearbox
 								using a set screw. The joint between the arms contains a ball bearing and a thrust
 								bearing. The
-								ball bearing reduces the friction between the arms and thrust bearing for the axial
+								ball bearing reduces the friction between the arms and the thrust bearing withstands
+								the
+								axial
 								loads on the
-								joint. This is all retained using tapped piece of aluminum with a bolt through it.
+								joint. This is all retained using tapped piece of 6061 aluminum with a bolt through
+								it.
 								Mounted to our
 								gearbox are two limit switches. These allow us to home our arm so we are referencing
 								from the same
@@ -152,14 +270,25 @@
 					</tr>
 
 				</table>
+				<hr>
+				<h5>Camera Mount</h5>
+				<p class="indent">
+					To track the puck during gameplay, we used a camera mounted above the air hockey table. We
+					achieved
+					the necessary height using a wooden frame and mounted it to the table using a 3D print that sat
+					underneath the edge of the table. A 3D print was also used at the top of the wooden frame for
+					the
+					camera to slide into.
+				</p>
 			</section>
 
 			<section>
 				<header>
 					<h3>Firmware Design</h3>
-					<p>This is the subtitle for this particular heading</p>
+					<p>Overview of Puckinator Firmware Systems</p>
 				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
+				<p class="indent">Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci.
+					Pellentesque
 					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
 					<em>emphasized</em> ac turpis egestas. Morbi
 					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
@@ -170,9 +299,10 @@
 			<section>
 				<header>
 					<h3>Software Design</h3>
-					<p>This is the subtitle for this particular heading</p>
+					<p>Overview of Puckinator Software Systems</p>
 				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
+				<p class="indent">Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci.
+					Pellentesque
 					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
 					<em>emphasized</em> ac turpis egestas. Morbi
 					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
@@ -185,7 +315,8 @@
 					<h3>Design Trade-Offs We Made</h3>
 					<p>This is the subtitle for this particular heading</p>
 				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
+				<p class="indent">Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci.
+					Pellentesque
 					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
 					<em>emphasized</em> ac turpis egestas. Morbi
 					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
@@ -232,7 +363,8 @@
 								<td>
 									<p><a href="https://www.amazon.com/gp/product/B00PNEPF5I">Link</a></p>
 								</td>
-								<td>Any NEMA 23 size stepper motors should work here as long as they have a reasonable
+								<td>Any NEMA 23 size stepper motors should work here as long as they have a
+									reasonable
 									amount of torque.</td>
 							</tr>
 							<tr>
@@ -265,7 +397,8 @@
 								<td>
 									<p><a href="https://www.amazon.com/dp/B078RYWZMH?th=1">Link</a></p>
 								</td>
-								<td>We ended up switching to a bench power supply that only provided 18V, but this power
+								<td>We ended up switching to a bench power supply that only provided 18V, but this
+									power
 									supply is more compact and worked fine.</td>
 							</tr>
 							<tr>
@@ -380,7 +513,8 @@
 								<td> </td>
 								<td>true</td>
 								<td> </td>
-								<td>We constructed our camera mount from scraps found in the Olin shop, but really any
+								<td>We constructed our camera mount from scraps found in the Olin shop, but really
+									any
 									material should work here.</td>
 							</tr>
 							<tr>
@@ -401,7 +535,8 @@
 											href="https://www.amazon.com/D-FLIFE-Printer-Mechanical-Switches-Makerbot/dp/B089K5MX21?crid=1OKTPFWWWFS5T&amp;keywords=makerbot+endstop&amp;qid=1702586268&amp;sprefix=makerbot+endstop,aps,77&amp;sr=8-1">Link</a>
 									</p>
 								</td>
-								<td>We got these for free from previous PIE projects. Any limit switches should work if
+								<td>We got these for free from previous PIE projects. Any limit switches should work
+									if
 									mounts are designed for them.</td>
 							</tr>
 							<tr>
