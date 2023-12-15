@@ -29,11 +29,8 @@ acronym,
 address,
 big,
 cite,
-<<<<<<< HEAD
-code,
-=======
->>>>>>> 065d92f3f069507e41c7391b75eee2180ddaeeb2
-del,
+<<<<<<< HEAD code,
+=======>>>>>>>065d92f3f069507e41c7391b75eee2180ddaeeb2 del,
 dfn,
 em,
 img,
@@ -292,14 +289,11 @@ h6 {
 	font-size: 1em;
 }
 
-<<<<<<< HEAD
-=======
-p.indent {
+<<<<<<< HEAD=======p.indent {
 	text-indent: 30px;
 }
->>>>>>> 065d92f3f069507e41c7391b75eee2180ddaeeb2
 
-sub {
+>>>>>>>065d92f3f069507e41c7391b75eee2180ddaeeb2 sub {
 	font-size: 0.8em;
 	position: relative;
 	top: 0.5em;
@@ -2443,23 +2437,11 @@ ol.default li {
 	padding-left: 0.25em;
 }
 
-<<<<<<< HEAD
-p.indent {
-	text-indent: 30px;
-}
-
 ul.default {
 	list-style: disc;
 	padding-left: 1em;
 }
 
-=======
-ul.default {
-	list-style: disc;
-	padding-left: 1em;
-}
-
->>>>>>> 065d92f3f069507e41c7391b75eee2180ddaeeb2
 ul.default li {
 	padding-left: 0.5em;
 }
@@ -2770,11 +2752,10 @@ input[type="button"].small,
 
 .feature {
 	position: relative;
-<<<<<<< HEAD
-	height: 20em;
-=======
+	<<<<<<< HEAD height: 20em;
+	=======
 	/* height: 20em; */
->>>>>>> 065d92f3f069507e41c7391b75eee2180ddaeeb2
+	>>>>>>>065d92f3f069507e41c7391b75eee2180ddaeeb2
 }
 
 .feature:after {
