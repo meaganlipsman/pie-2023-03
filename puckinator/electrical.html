@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Puckinator</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<style>
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	li {
+		float: left;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover:not(.active) {
+		background-color: #111;
+	}
+
+	.active {
+		background-color: #04AA6D;
+	}
+</style>
+</head>
+
+<body>
+
+	<ul>
+		<li><a href="./index.html">Home</a></li>
+		<li><a class="active" href="./electrical.html">Electrical</a>
+		<li><a href="./mechanical.html">Mechanical</a></li>
+		<li><a href="./firmware.html">Firmware</a></li>
+		<li><a href="./software.html">Software</a></li>
+	</ul>
+
+
+	<div class="box container">
+		<header>
+			<h2>Design Choices</h2>
+		</header>
+		<section>
+			<header>
+				<h3>Electrical Design</h3>
+				<p>Overview of Puckinator Electrical Systems</p>
+			</header>
+			<h4>Schematic</h4>
+			<div style="text-align: center;">
+				<img width="800" src="images/Schematic.png" alt="Electrical System Schematic">
+			</div>
+			<hr>
+			<h4>Stepper Motors and Motor Drivers Wiring</h4>
+			<p class="indent">Our Main Electrical System involved 2 stepper motors that each interfaced with their
+				own motor
+				drivers and an Arduino Uno. We used 1.26 Nm Nema 23 stepper motors (rated 2.8/4.2 amps) and
+				TB6600
+				Stepper Motor Drivers (rated for 4 amps and 9-42 volts). We chose these specific motors because
+				they
+				would supply enough torque to move our arm as quickly as we needed to. Additionally, we chose
+				the
+				TB6600 Stepper Motor Drivers because it matched the amps that our motors needed. </p>
+			<img width="800" src="images/Stepper Motors and Motor Drivers Wiring.jpg" alt=""
+				style="vertical-align: middle;">
+			<p class="indent">
+				The stepper drivers connected to the stepper motors, our DC power supply, and our Arduino in the
+				following ways:
+			</p>
+			<h6 style="text-align: left;">How it's connected to the motors: </h6>
+			<p class="indent">
+				Our stepper motors were 4 wire motors so each wire is connected to an end of one of the coils inside the
+				motor. This means that there were two pairs of wires: A+ and A- which were connected to one of the
+				coils, and B+ and B- which were connected to the other coil. Through research and testing, we determined
+				that the red and blue wires and the black and green wires were paired. These pairs, respectively, were
+				wired directly to the A+, A-, B+, and B- spots on the stepper driver.
+			</p>
+			<br>
+			<img width="800" src="images/How it connected to the motors.jpg" alt="" style="vertical-align: middle;">
+			<br>
+			<h6 style="text-align: left;">How it's connected to the DC power supply: </h6>
+			<p class="indent">
+				The stepper drivers were powered by an external AC to DC power supply. The VCC and GND spots on the
+				stepper drivers were connected to separate power and ground ports on the power supply. The power supply
+				was set so that each stepper driver could receive 18 volts and about 4 amps.
+			</p>
+			<br>
+			<img width="800" src="images/Power Supply.jpg" alt="" style="vertical-align: middle;">
+			<br>
+			<h6 style="text-align: left;">How it's connected to the Arduino: </h6>
+			<p class="indent">
+				Finally, we chose to use an Arduino Uno to control the enable, direction, and pulse(step) pins on the
+				stepper driver. To ensure that all of the grounds were the same, we connected the ENA-, DIR-, and PUL-
+				to the ground of the Arduino. ENA+, DIR+, and PUL+ for both motor drivers needed to be connected to
+				digital pins on the Arduino. PUL+, DIR +, ENA+ for stepper driver 1 were connected to Arduino pins D5,
+				D6, and D7 respectively. PUL+, DIR +, ENA+ for stepper driver 2 were connected to Arduino pins D8, D9,
+				and D10 respectively. To prevent accidental disconnects, we soldered each wire to header pins we plugged
+				into the Arduino.
+			</p>
+			<br>
+			<img width="800" src="images/How it connected to the Arduino.jpg" alt="" style="vertical-align: middle;">
+			<br>
+			<hr>
+			<h4>Homing Limit Switches and E-Stop</h4>
+			<p class="indent">We incorporated 2 end stops into our project so that we could home our stepper motors. We
+				used limit switches as our end stops. Both end stop switches had power and ground that were connected to
+				the power and ground from the Arduino. The signal lines for both end stop switches needed to be
+				connected to digital pins of the Arduino. As such, the signal line for end stop switch 1 and 2 were
+				connected to digital pins D11 and D12 respectively.
+			</p>
+			<br>
+			<img width="800" src="images/End Stop Switches.jpg" alt="" style="vertical-align: middle;">
+			<p class="indent">We also added an E-stop so that we could stop all movement of the arm should something go
+				wrong. For this
+				we used a large red push button and connected it an interrupt pin on the Arduino. The interrupt pin we
+				used was digital pin D2, which we connected to one side of the button while grounding the other side.
+			</p>
+			<br>
+			<img width="800" src="images/E-Stop.jpg" alt="" style="vertical-align: middle;">
+		</section>
+
+
+
+
+</body>
+
+</html>

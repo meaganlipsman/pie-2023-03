@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Puckinator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #04AA6D;
+    }
+</style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./electrical.html">Electrical</a>
+        <li><a href="./mechanical.html">Mechanical</a></li>
+        <li><a class="active" href="./firmware.html">Firmware</a></li>
+        <li><a href="./software.html">Software</a></li>
+    </ul>
+
+
+    <div class="box container">
+        <header>
+            <h2>Design Choices</h2>
+        </header>
+        <section>
+            <section>
+                <header>
+                    <h3>Firmware Design</h3>
+                    <p>Overview of Puckinator Firmware Systems</p>
+                </header>
+                <p>Our firmware’s purpose was to receive two stepper motor angles via serial communication and robustly
+                    implement the movement of the striker attached to the steppers to a desired coordinate on the air
+                    hockey table. It has three primary functionalities: homing, emergency stop, and manual debugging
+                    mode. We used the FlexyStepper library to implement homing and facilitate stepper movement.
+                </p>
+                <h5>Initialization</h5>
+                <p>We begin by declaring all of our constants and creating two instances of FlexyStepper: one called
+                    stepper1 and one called stepper2, where stepper1 is the left motor and stepper2 is the right. In the
+                    setup function, we initialize each stepper instance with their pin values, speed, acceleration, and
+                    the de facto number of steps per revolution. Our mechanical system consisted of two Nema 23 Stepper
+                    Motors each with 1600 steps per revolution and a gear ratio of 3. Our resultant number of steps per
+                    resolution was therefore the product of the two, or 1600 * 3. </p>
+
+                <h5>Homing</h5>
+                <p>The function <code>moveToHomeInRevolutions()</code> from FlexyStepper has four inputs: a direction
+                    toward home, a homing speed in revolutions per second, a max homing distance in revolutions, and the
+                    pin number of a limit switch. Once given these inputs, FlexyStepper moves each motor instance until
+                    it hits a limit switch, at which point it sets <code>stepper.moveToHomeInRevolutions()</code> to
+                    <code>true</code> (<code>stepper</code> here is a placeholder for an instance name).</p>
+                <p>For stepper1, we set a direction of 1 to move the motor counterclockwise at a speed 0.1 revolutions
+                    per second until it hit its associated limit switch at the pin <code>LIMIT_SWITCH_PIN_1</code>. For
+                    stepper2, we set a direction of -1 to move the motor clockwise at the same speed until it hit the
+                    limit switch at <code>LIMIT_SWITCH_PIN_2</code>.</p>
+                <p>While the function values returned false, pin 11 would light up to signify homing failure. This is a
+                    feature implemented for debugging and does not offer any functionality.</p>
+                <p>Once both sequences were complete and the function values were set to <code>true</code>, we moved
+                    each stepper to an experimentally determined revolution value so that the affixed arms were parallel
+                    to each other and perpendicular to the short edge of the air hockey table. Then, we set the new
+                    position as 0, which is the equivalent of 90 degrees in the inverse kinematics coordinate frame
+                    mentioned in Software. This effectively standardized the stepper motor position, allowing us to
+                    consistently transfer the calculated angles from python to stepper motor revolution values. It also
+                    means miscalibration caused by accidents in which the stepper motor skips steps can be easily
+                    remedied through homing.</p>
+
+                <h5>Decoding Serial</h5>
+                <p>The Arduino, which is initialized with the same baud rate (115200) set in software, continually
+                    receives the desired theta and phi values as a string in the format <code>“θ,φ”</code>. This is
+                    decoded using the built-in C function <code>strtok()</code>, which breaks down the string into two
+                    smaller strings <code>”θ”</code> and <code>”φ”</code> once given the delimiter <code>”,”</code>. We
+                    then convert the string to a double-precision floating-point value, which is divided by 2π to
+                    convert into revolutions. Each angle value is then fed into the FlexyStepper function
+                    <code>setTargetPositionInRevolutions()</code>, which does not actually move the motor but does set
+                    the intended position of the motor. The converted theta value is fed to stepper1, while the
+                    converted phi value is fed to stepper2.</p>
+
+                <h5>Primary Loop and Movement</h5>
+                <p>In the primary loop, we call the function <code>processIncomingByte()</code> which decodes serial and
+                    sets the target positions of the motors in revolutions. Once the decoding process is entirely
+                    complete and the serial port is empty, we call the FlexyStepper function
+                    <code>processMovement()</code>, which moves the stepper one step in the direction of movement if the
+                    FlexyStepper function <code>motionComplete()</code> returns true. This was an important design
+                    decision in greatly reducing our latency, as explained in the Major Design Decisions section.</p>
+
+            </section>
+
+        </section>
+
+
+
+
+</body>
+
+</html>
