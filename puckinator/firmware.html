@@ -48,6 +48,7 @@
 
     <ul>
         <li><a href="./index.html">Home</a></li>
+        <li><a href="./design_decisions.html">Design Decisions</a></li>
         <li><a href="./electrical.html">Electrical</a>
         <li><a href="./mechanical.html">Mechanical</a></li>
         <li><a class="active" href="./firmware.html">Firmware</a></li>
@@ -83,7 +84,8 @@
                     toward home, a homing speed in revolutions per second, a max homing distance in revolutions, and the
                     pin number of a limit switch. Once given these inputs, FlexyStepper moves each motor instance until
                     it hits a limit switch, at which point it sets <code>stepper.moveToHomeInRevolutions()</code> to
-                    <code>true</code> (<code>stepper</code> here is a placeholder for an instance name).</p>
+                    <code>true</code> (<code>stepper</code> here is a placeholder for an instance name).
+                </p>
                 <p>For stepper1, we set a direction of 1 to move the motor counterclockwise at a speed 0.1 revolutions
                     per second until it hit its associated limit switch at the pin <code>LIMIT_SWITCH_PIN_1</code>. For
                     stepper2, we set a direction of -1 to move the motor clockwise at the same speed until it hit the
@@ -108,7 +110,8 @@
                     convert into revolutions. Each angle value is then fed into the FlexyStepper function
                     <code>setTargetPositionInRevolutions()</code>, which does not actually move the motor but does set
                     the intended position of the motor. The converted theta value is fed to stepper1, while the
-                    converted phi value is fed to stepper2.</p>
+                    converted phi value is fed to stepper2.
+                </p>
 
                 <h5>Primary Loop and Movement</h5>
                 <p>In the primary loop, we call the function <code>processIncomingByte()</code> which decodes serial and
@@ -116,7 +119,8 @@
                     complete and the serial port is empty, we call the FlexyStepper function
                     <code>processMovement()</code>, which moves the stepper one step in the direction of movement if the
                     FlexyStepper function <code>motionComplete()</code> returns true. This was an important design
-                    decision in greatly reducing our latency, as explained in the Major Design Decisions section.</p>
+                    decision in greatly reducing our latency, as explained in the Major Design Decisions section.
+                </p>
 
             </section>
 
