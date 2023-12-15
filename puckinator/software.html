@@ -98,16 +98,70 @@
 
                 <p>On each new webcam frame, we call <code>cv.warpPerspective()</code> with the calculated
                     transformation matrix to transform and crop the incoming image.</p>
-                <!-- INSERT PUCK DETECTION HERE -->
+
+                <h5>Puck Detection</h5>
+                <p>Once we have a perspective corrected frame, the next step is to detect the puck using the ArUco
+                    marker that’s taped onto it. We use the same <code>detectMarkers()</code> function from the
+                    <code>cv.aruco</code> module. Using those results, we draw the detected markers on the frame for
+                    visualization purposes. To find the puck, we filter the results to only look for a marker with the
+                    ID 4 (which is the ID of the marker taped to the puck). If there are any such results, we then find
+                    the center point of the puck by calculating the average position of all four corners. The data is
+                    returned in an instance of the <code>TimestampedPosition</code> dataclass which stores the position
+                    and timestamp when the marker detection completed.
+                </p>
 
                 <h5>Trajectory Prediction</h5>
                 <p> In our main loop, we track the puck’s coordinate and timestamp at every frame and store it in an
                     instance of the dataclass <code>TimestampedPos</code> , which has member variables x, y, and
                     timestamp. In a while loop, we continually create new instances of <code>TimestampedPos</code> at
                     every new frame, making sure to store one past instance of <code>TimestampedPos</code> each time.
-
-
                 </p>
+                <b>predict_trajectory():</b>
+                <p>The function <code>predict_trajectory</code> then receives a <code>previous_position</code>, a
+                    <code>latest_position</code>, and a constant <code>x_intercept</code> to calculate the velocity
+                    vector of the puck using the change in time and change in position. <code>HITTING_POSITION</code>
+                    represents the arbitrarily set x-value for which the robot will attempt to meet the puck. It also
+                    calculates the line that the velocity vector falls on, hereafter referenced as the velocity line.
+                    Once this vector is defined, there are three modes for the robot’s behavior: copying, puck not
+                    bouncing, and puck bouncing. These all output <code>y_int</code>, which is the y-coordinate of the
+                    desired position of the striker.
+                </p>
+
+                <p>If the puck is headed away from the robot (i.e. change in position is positive), has a speed
+                    less than a specified <code>SPEED_THRESHOLD</code>, or is traveling parallel to the y-axis, it
+                    simply copies the y-position of the puck and outputs no velocity vector. If none of the listed
+                    conditions are fulfilled, it moves on to two more options as detailed below.</p>
+                <p>If the intersection between the velocity line and the <code>HITTING_POSITION</code> is within the
+                    table’s bounds (in other words, it will not bounce before the robot tries to hit it), the function
+                    returns the y-value of the intersection.
+                </p>
+                <p>If it is projected to hit the side of the table before reaching <code>HITTING_POSITION</code>:
+                    <code>predict_next_bounce()</code> takes in the slope and y-intercept of the velocity line. It then
+                    outputs a predicted velocity line for after the bounce as well as the point at which the puck should
+                    bounce. This is done using the law of reflection, or the concept that the angle of incidence will
+                    equal the angle of reflection. Since we have lines rather than angles, we did this by negating the
+                    slope and calculating the new y-intercept using simple point-slope form. We determined which of the
+                    two walls (we only calculated bounces off of the long sides of the table) that the puck would hit
+                    based off the sign of the slope. We then stored the velocity lines at each bounce point in a list,
+                    which was outputted by the outer function <code>predict_trajectory()</code>.
+                </p>
+                <p>Aside from the velocity lines list, the function also outputs an instance of the dataclass
+                    <code>TrajectoryPrediction</code>, which includes the predicted x-position of the puck, the
+                    predicted y-position, the change in x, the change in y, and the predicted time that the puck will
+                    arrive at predicted position.
+                </p>
+                <b>Limitations of <code>predict_trajectory():</code></b>
+                <p>Interestingly, the real world behavior of the puck did not perfectly match the law of reflection,
+                    possibly due to uneven air distribution from the table, the table being tilted, and friction on the
+                    surface, which contributed to jitteriness in the outputted y. To reduce this jitteriness, we
+                    manually limited number of bounces that the function would predict to 2. </p>
+                <b>Visualizations:</b>
+                <p>The velocity vector is displayed when the puck is not predicted to hit the side of the table before
+                    reaching the robot. If the puck bounces, it instead displays all of the velocity lines with
+                    directional arrows as limited by the edges of the table. A red circle is displayed around the point
+                    that the striker should move to to meet the puck. These are all drawn on top of the perspective
+                    transform that appears once the transformation is initiated with the “c” key. All of the
+                    visualization code lives outside <code>predict_trajectory()</code> in the main function.</p>
 
                 <h5>Inverse Kinematics</h5>
                 <img src="images/inverse_kinematics.svg" alt="" style="vertical-align: middle;">
@@ -171,6 +225,15 @@
                     avoid zero
                     division errors.
                 </p>
+                <h5>Serial Communications Interface</h5>
+                <p>Once <code>predict_trajectory()</code> and <code>coordinate_converter()</code> have done their jobs
+                    finding the best theta and phi values for the arm to move to based on the puck’s behavior, we must
+                    send these values over serial to our Arduino, which is responsible for turning those values into
+                    real-world motor movement. Once we initialize the arduino with a high baud rate to reduce latency
+                    and a write timeout to protect against overloading the queue, this is as simple as using the serial
+                    method <code>write()</code> to transfer those theta and phi values over. The inputs are adjusted by
+                    90 degrees because the stepper motors are zeroed at 90 degrees (As explained in the Firmware
+                    section).</p>
             </section>
 
         </section>
