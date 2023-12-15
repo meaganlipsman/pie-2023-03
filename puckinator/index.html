@@ -13,185 +13,156 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-<body class="is-preload">
+<style>
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
 
-	<!-- Header -->
-	<div id="header">
-		<!-- <span class="logo icon fa-paper-plane"></span> -->
-		<img src="images/Logo Photo.jpg" alt="Puckinator Logo">
-		<!-- <h1>Puckinator.</h1> -->
-		<p> Never play air hockey alone again</p>
-		<!-- <p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
+	li {
+		float: left;
+	}
+
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover:not(.active) {
+		background-color: #111;
+	}
+
+	.active {
+		background-color: #04AA6D;
+	}
+</style>
+</head>
+
+<body>
+
+	<ul>
+		<li><a class="active" href="./index.html">Home</a></li>
+		<li><a href="./electrical.html">Electrical</a>
+		<li><a href="./mechanical.html">Mechanical</a></li>
+		<li><a href="./firmware.html">Firmware</a></li>
+		<li><a href="./software.html">Software</a></li>
+	</ul>
+
+	<body class="is-preload">
+
+		<!-- Header -->
+		<div id="header">
+			<!-- <span class="logo icon fa-paper-plane"></span> -->
+			<img src="images/Logo Photo.jpg" alt="Puckinator Logo">
+			<!-- <h1>Puckinator.</h1> -->
+			<p> Never play air hockey alone again</p>
+			<!-- <p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
 			<br />
 			and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>. -->
-		</p>
-	</div>
+			</p>
+		</div>
 
-	<!-- Main -->
-	<div id="main">
+		<!-- Main -->
+		<div id="main">
 
-		<header class="major container medium">
-			<h2>A robotic arm
-				<br />
-				that can play air hockey against you.
-				<br />
-				No partner needed.
-			</h2>
-			<!--
+			<header class="major container medium">
+				<h2>A robotic arm
+					<br />
+					that can play air hockey against you.
+					<br />
+					No partner needed.
+				</h2>
+				<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
 					-->
-		</header>
-
-		<div class="box alt container">
+			</header>
+			<!--
+			<section class=" feature right">
+						<img src="images/System Overview.PNG" alt="Puckinator System Overview"
+							class="image icon solid fa-signal">
+						<div class="content">
+							<h3>System Overview</h3>
+							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
+								penatibus.
+								Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.
+							</p>
+						</div>
+			</section>
 			<section class="feature left">
-				<a href="#" class="image icon solid fa-signal"><img src="images/Logo Photo.jpg" alt="" /></a>
-				<div class="content">
-					<h3>What is Our Project?</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<section class="feature right">
-				<a href="#" class="image icon solid fa-code"><img src="images/pic02.jpg" alt="" /></a>
-				<div class="content">
-					<h3>System Overview</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<!-- <section class="feature left">
 				<a href="#" class="image icon solid fa-mobile-alt"><img src="images/pic03.jpg" alt="" /></a>
-				 <div class="content">
+				<div class="content">
 					<h3>Budget</h3>
 					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
 						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
 				</div> -->
+		</div>
+
+		<div class="box alt container">
+			<section class="feature left">
+				<img src="images/Logo Photo.jpg" alt="Puckinator Logo" style="vertical-align: top;"
+					class="image icon solid fa-mobile-alt">
+				<div class="content">
+					<h3 style="vertical-align: top;">Sprint 1</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+				</div>
+			</section>
+			<section class=" feature right">
+				<img src="images/System Overview.PNG" alt="Puckinator System Overview"
+					class="image icon solid fa-signal">
+				<div class="content">
+					<h3>Sprint 2</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
+						penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.
+					</p>
+				</div>
+			</section>
+			<section class="feature left">
+				<img src="images/pic03.jpg" alt="" class="image icon solid fa-mobile-alt">
+				<div class="content">
+					<h3>Sprint 3</h3>
+					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
+						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+				</div>
 			</section>
 		</div>
 
-		!--
+
+		<h3>System Overview</h3>
+		<div style="text-align: center;">
+			<img width="1100" src="images/System Overview.PNG" alt="Puckinator System Overview">
+		</div>
+		<br>
 		<div class="box container">
 			<header>
 				<h2>Design Choices</h2>
 			</header>
 			<section>
 				<header>
-					<h3>Electrical Design</h3>
-					<p>This is the subtitle for this particular heading</p>
-				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
-					<em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.
-				</p>
-			</section>
+					<p>For design choices by subcategories, click on the tabs at the top of the page.</p>
 
-			<section>
-				<header>
-					<h3>Mechanical Design</h3>
-					<p>Overview of Puckinator Mechanical Systems</p>
-				</header>
-				<div style="text-align: center;">
-					<img width="700" src="images/GearboxAssemRender.png" alt="Gearbox Render">
-				</div>
-				<h5>Gearbox</h5>
-				<table width="800">
-					<tr>
-						<td align="left" style="vertical-align:top;">
-							<span width="400">We used NEMA 23 stepper motors for our arm mechanism, but these motors did
-								not produce
-								enough
-								torque for our needs. This required a gearbox for our motors. We have a 3:1 gearbox
-								ratio
-								using 3D printed PETG herringbone gears. Herringbone gears can carry more load than
-								standard gears. Since we wanted to be able to print our gears, it was crucial that we
-								achieved a strong gear. To reduce friction
-								with
-								our shaft, we have shoulder bearings at each plate interface for our gearbox. Our shafts
-								are 6061 aluminum that have a threaded hole for the large gear interface and arms are
-								attached using a set screw. Our smaller gears are mounted to our stepper motors using
-								have of a spider coupling. We used a press fit with a spider coupling to allow us to
-								clamp to the shaft of the stepper motor. Our gearbox has one inch of clearance between
-								the plates, maintained by 1 in alumnium standoffs fabricated from 3/8” 6061 aluminum
-								rod stock. We use 1/4-20” bolts to constrain our gearbox.
-							</span>
-						</td>
-						<td align="right">
-							<img width="400" src="images/GearboxAssemGif.gif" alt="Gearbox Assembly Collapse">
-						</td>
-					</tr>
-				</table>
-				<hr>
-				<div style="text-align: center;">
-					<img src="images/ArmRender1.png" alt="Arm Render">
-				</div>
-				<h5>Arm Assembly</h5>
-				<table width="800">
-					<tr>
-						<td align="right" style="vertical-align:center;">
-							<img width="400" src="images/ArmAssemblyGif.gif" alt="Arm Assembly Collapse">
-						</td>
-						<td align="right" style="vertical-align:top;">
-							<span width="400">We decided to design a parallel SCARA arm to move the striker across the
-								table. This arm uses two
-								two motors and can move along two axes. The arm interfaces with the output shafts of the
-								gearbox
-								using a set screw. The joint between the arms contains a ball bearing and a thrust
-								bearing. The
-								ball bearing reduces the friction between the arms and thrust bearing for the axial
-								loads on the
-								joint. This is all retained using tapped piece of aluminum with a bolt through it.
-								Mounted to our
-								gearbox are two limit switches. These allow us to home our arm so we are referencing
-								from the same
-								starting point at the beginning of each game.
-							</span>
-						</td>
-					</tr>
-
-				</table>
-			</section>
-
-			<section>
-				<header>
-					<h3>Firmware Design</h3>
-					<p>This is the subtitle for this particular heading</p>
-				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
-					<em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.
-				</p>
-			</section>
-
-			<section>
-				<header>
-					<h3>Software Design</h3>
-					<p>This is the subtitle for this particular heading</p>
-				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
-					<em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.
-				</p>
-			</section>
-
-			<section>
-				<header>
-					<h3>Design Trade-Offs We Made</h3>
-					<p>This is the subtitle for this particular heading</p>
-				</header>
-				<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci. Pellentesque
-					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
-					<em>emphasized</em> ac turpis egestas. Morbi
-					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.
-				</p>
-			</section>
+					<section>
+						<header>
+							<h3>Design Trade-Offs We Made</h3>
+							<p>This is the subtitle for this particular heading</p>
+						</header>
+						<p>Phasellus nisl nisl, varius id <sup>porttitor sed pellentesque</sup> ac orci.
+							Pellentesque
+							habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
+							<em>emphasized</em> ac turpis egestas. Morbi
+							leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies.
+							Vestibulum sit
+							amet risus elit.
+						</p>
+					</section>
 		</div>
 		<div class="box container">
 			<header>
@@ -232,7 +203,8 @@
 								<td>
 									<p><a href="https://www.amazon.com/gp/product/B00PNEPF5I">Link</a></p>
 								</td>
-								<td>Any NEMA 23 size stepper motors should work here as long as they have a reasonable
+								<td>Any NEMA 23 size stepper motors should work here as long as they have a
+									reasonable
 									amount of torque.</td>
 							</tr>
 							<tr>
@@ -265,7 +237,8 @@
 								<td>
 									<p><a href="https://www.amazon.com/dp/B078RYWZMH?th=1">Link</a></p>
 								</td>
-								<td>We ended up switching to a bench power supply that only provided 18V, but this power
+								<td>We ended up switching to a bench power supply that only provided 18V, but this
+									power
 									supply is more compact and worked fine.</td>
 							</tr>
 							<tr>
@@ -380,7 +353,8 @@
 								<td> </td>
 								<td>true</td>
 								<td> </td>
-								<td>We constructed our camera mount from scraps found in the Olin shop, but really any
+								<td>We constructed our camera mount from scraps found in the Olin shop, but really
+									any
 									material should work here.</td>
 							</tr>
 							<tr>
@@ -401,7 +375,8 @@
 											href="https://www.amazon.com/D-FLIFE-Printer-Mechanical-Switches-Makerbot/dp/B089K5MX21?crid=1OKTPFWWWFS5T&amp;keywords=makerbot+endstop&amp;qid=1702586268&amp;sprefix=makerbot+endstop,aps,77&amp;sr=8-1">Link</a>
 									</p>
 								</td>
-								<td>We got these for free from previous PIE projects. Any limit switches should work if
+								<td>We got these for free from previous PIE projects. Any limit switches should work
+									if
 									mounts are designed for them.</td>
 							</tr>
 							<tr>
@@ -576,65 +551,80 @@
 			</section>
 		</div>
 		-->
-	</div>
+		</div>
 
-	<!-- Footer -->
-	<div id="footer">
-		<div class="container medium">
-			<header class="major last">
-				<h2>About Us!</h2>
-			</header>
-			<section class="feature left">
-				<img src="images/pic01.jpg" alt="" height="300" width="300" style="vertical-align: middle;">
-				<div class="content">
-					<h3>Amanda Chang</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<section class="feature left">
-				<img src="images/BenTarr.jpg" alt="" height="300" width="300" style="vertical-align: middle;">
-				<div class="content" text-align="top">
-					<h3>Ben Tarr</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<section class="feature left">
-				<img src="images/ElinONeill.jpg" alt="" height="300" width="300" style="vertical-align: middle;">
-				<div class="content">
-					<h3>Elin O'Neill</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<section class="feature left">
-				<img src="images/LilyDao.JPG" alt="" height="300" width="300" style="vertical-align: middle;">
-				<div class="content">
-					<h3>Lily Dao</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
-			<section class="feature left">
-				<img src="images/pic01.jpg" alt="" height="300" width="300" style="vertical-align: middle;">
-				<div class="content">
-					<h3>Meagan Lipsman</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div>
-			</section>
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container medium">
+				<header class="major last">
+					<h2>About Us!</h2>
+				</header>
+				<section class="feature left">
+					<img src="images/pic01.jpg" alt="" height="350" width="350" style="vertical-align: middle;">
+					<div class="content">
+						<h3>Amanda Chang</h3>
+						<p><b>Class of 2026
+								<br>Electrical and Computer Engineering</b>
+							<br>Amanda is interested in electrical and software systems and their interactions.
+							For the Puckinator, she worked closely with OpenCV tracking and transformation,
+							inverse kinematics for the five-bar linkage, trajectory prediction for the puck,
+							harnessing, and reducing end-to-end latency.
+						</p>
+					</div>
+				</section>
+				<section class="feature left">
+					<img src="images/BenTarr.jpg" alt="" height="350" width="350" style="vertical-align: middle;">
+					<div class="content" text-align="top">
+						<h3>Ben Tarr</h3>
+						<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
+							Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+					</div>
+				</section>
+				<section class="feature left">
+					<img src="images/ElinONeill.jpg" alt="" height="350" width="350" style="vertical-align: middle;">
+					<div class="content">
+						<h3>Elin O'Neill</h3>
+						<p><b>Class of 2026
+								<br>Engineering: Computing</b>
+							<br>Elin is interested in software, more specifically arm control code, and administrative
+							duties
+							such as documentation and communicating project progress and results.
+						</p>
+					</div>
+				</section>
+				<section class="feature left">
+					<img src="images/LilyDao.JPG" alt="" height="350" width="350" style="vertical-align: middle;">
+					<div class="content">
+						<h3>Lily Dao</h3>
+						<p><b>Class of 2026
+								<br>Mechanical Engineering</b>
+							<br>Lily is interested in design and fabrication and worked on the majority of the
+							mechanical
+							design for this project.
+						</p>
+					</div>
+				</section>
+				<section class="feature left">
+					<img src="images/MeaganLipsman.jpg" alt="" height="350" width="350" style="vertical-align: middle;">
+					<div class="content">
+						<h3>Meagan Lipsman</h3>
+						<p><b>Class of 2026
+								<br>Electrical and Computer Engineering</b>
+							<br>Meagan is interested in wiring and software as well as Project Managing.
+						</p>
+					</div>
+				</section>
 
-			<footer class="major container medium">
-				<h2>Thank You!</h2>
-				<h3>Questions or Comments? </h3>
-				<p>Feel free to reach out to any of our Emails!</p>
-				<!-- <ul class="actions special">
+				<footer class="major container medium">
+					<h2>Thank You!</h2>
+					<h3>Questions or Comments? </h3>
+					<p>Feel free to reach out to any of our Emails!</p>
+					<!-- <ul class="actions special">
 					<li><a href="#" class="button">Join our crew</a></li>
 				</ul> -->
-			</footer>
+				</footer>
 
-			<!-- <form method="post" action="#">
+				<!-- <form method="post" action="#">
 				<div class="row">
 					<div class="col-6 col-12-mobilep">
 						<input type="text" name="name" placeholder="Name" />
@@ -653,7 +643,7 @@
 				</div>
 			</form> -->
 
-			<!-- <ul class="icons">
+				<!-- <ul class="icons">
 				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
@@ -661,21 +651,18 @@
 				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 			</ul> -->
 
-			<ul class="copyright">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
 
+
+			</div>
 		</div>
-	</div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 
 </html>

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Directive by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>Puckinator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #04AA6D;
+    }
+</style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./electrical.html">Electrical</a>
+        <li><a href="./mechanical.html">Mechanical</a></li>
+        <li><a href="./firmware.html">Firmware</a></li>
+        <li><a class="active" href="./software.html">Software</a></li>
+    </ul>
+
+
+    <div class="box container">
+        <header>
+            <h2>Design Choices</h2>
+        </header>
+        <section>
+            <section>
+                <header>
+                    <h3>Software Design</h3>
+                    <p>Overview of Puckinator Software Systems</p>
+                </header>
+                <h5>Abridged Overview</h5>
+                <p>First, OpenCV transforms the frames from the camera to correct any distortion. The puck’s location is
+                    determined once this transformation is complete. The puck’s movement is tracked by
+                    predict_trajectory,
+                    which finds the optimal position for the striker to move to and the velocity vector of the puck. The
+                    stepper motor angles necessary for the striker to reach the position are calculated by
+                    coordinate_converter(). In the main loop, the optimal position and velocity vector are visualized on
+                    top
+                    of the OpenCV transformation and the angles are sent over serial to the firmware.</p>
+
+
+                <h5>OpenCV Pipeline</h5>
+                <p><b>Camera Capture:</b>
+                    <br> Our camera provides a 640x400 monochrome video stream in the MJPG format. We use the
+                    <code>imutils.video</code> module to put the OpenCV video stream on a separate thread. This allows
+                    us to avoid using the blocking <code>stream.read()</code> function on the main thread that also is
+                    responsible for trajectory prediction and sending commands to the Arduino.
+                </p>
+                <p><b>Perspective Correction and Calibration:</b>
+                    <br> When the program starts, the camera view is approximately centered on the air hockey table, but
+                    there is some perspective distortion. To find the location of the puck with relation to the table,
+                    we need to perspective correct and crop the frame to the corners of the table. The corners are
+                    marked with ArUco markers and their positions are identified through the <code>cv.aruco</code>
+                    module. For each marker, we define a desired position within the transformed frame. Those positions
+                    correspond to the actual dimensions of the air hockey table (multiplied by the
+                    <code>PIXELS_PER_INCH</code> constant). The detected corners (from the ArUco markers) and desired
+                    corners are passed into the <code>cv.getPerspectiveTransform()</code> function which calculates the
+                    transformation matrix between the distorted webcam frame and the desired points.
+                </p>
+                <img src="images/PerspectiveTransform.svg" alt="" style="vertical-align: middle;">
+
+                <p>On each new webcam frame, we call <code>cv.warpPerspective()</code> with the calculated
+                    transformation matrix to transform and crop the incoming image.</p>
+                <!-- INSERT PUCK DETECTION HERE -->
+
+                <h5>Trajectory Prediction</h5>
+                <p> In our main loop, we track the puck’s coordinate and timestamp at every frame and store it in an
+                    instance of the dataclass <code>TimestampedPos</code> , which has member variables x, y, and
+                    timestamp. In a while loop, we continually create new instances of <code>TimestampedPos</code> at
+                    every new frame, making sure to store one past instance of <code>TimestampedPos</code> each time.
+
+
+                </p>
+
+                <h5>Inverse Kinematics</h5>
+                <img src="images/inverse_kinematics.svg" alt="" style="vertical-align: middle;">
+                <p>Pictured above is an abstracted diagram of our five bar linkage. Point S represents
+                    the center of the striker, while sides A through D represent the arms of the linkage.
+                    (0, 0) in the inverse kinematics coordinate frame is the center of the left stepper motor
+                    shaft, while (0, 0) in the OpenCV coordinate frame is the upper left corner of the upper
+                    left ArUco Marker affixed to the table. Angles theta and phi represent the required angles
+                    of our two stepper motors to move the striker to point S.
+                </p>
+                <p><b>Coordinate Conversion:</b>
+                    <br>In the file <code>puckinator.py</code>, a separate function
+                    <code>predict_trajectory()</code>
+                    determines the
+                    desired
+                    OpenCV y-position of the striker based on the behavior of the puck. The OpenCV x-position of
+                    the striker is set as a constant at all times, meaning the striker should only move side to
+                    side along the defined x-position.
+                </p>
+
+                <p>The function <code>coordinate_converter()</code> takes in a point <em>in the inverse kinematics
+                        coordinate frame</em> and outputs the angles theta and phi required to move the striker to
+                    that
+                    point. In every
+                    other function we only use the OpenCV coordinate frame. To convert from the OpenCV coordinate
+                    found by predict <code>trajectory()</code> to the inverse kinematics coordinate frame, we add
+                    <code>Y_OFFSET</code>
+                    to the inverse kinematics y-value and feed it into the coordinate converter as the x-position,
+                    because the x and y axes are switched. Similarly, we add <code>X_OFFSET</code> to the desired
+                    inverse
+                    kinematics x-value and feed it as the y-position.
+                </p>
+                <p><b>Rectangular to Angular:</b>
+                    <br><em>Theta:</em>
+                    <br><img src="images/theta1.PNG" alt="" style="vertical-align: middle;">
+                    <br> The bottom angle of isosceles triangle, which I will call angle b, is defined by sides A, B
+                    and
+                    diag1.
+                    Realizing that A and B are both ARM_LENGTH, the law of cosines therefore states:
+                    <br> <img src="images/theta2.PNG" alt="" style="vertical-align: middle;">
+                    <br>
+                    <br><em>Phi:</em>
+                    <br><img src="images/phi1.PNG" alt="" style="vertical-align: middle;">
+                    <br> Angle c of the isosceles triangle defined by C, D, and
+                    diag2 can also be defined by law of cosines:
+                    <br><img src="images/phi2.PNG" alt="" style="vertical-align: middle;">
+                    <br>From this it follows:
+                    <br><img src="images/phi1.PNG" alt="" style="vertical-align: middle;">
+                    <br> These equations apply for when x > 0. However in the code implementation, we used the numpy
+                    function
+                    <code>arctan2</code> so that the angle contributions of the two triangles defined by x, y and
+                    diag1 and by x, y,
+                    and diag 2 respectively would continue to function when point S had a negative x value. When the
+                    x
+                    value of the striker becomes negative, the right triangles mentioned previously flip vertically.
+                    For
+                    this reason, the arctangent calculation must be subtracted by 90 to get the new desired angle
+                    contribution. <code>arctan2()</code> does this automatically, hence its inclusion in the
+                    arctangent calculations
+                    within <code>coordinate_converter()</code>. For cases in which x = 0, we simply set x = 0.001 to
+                    avoid zero
+                    division errors.
+                </p>
+            </section>
+
+        </section>
+
+
+
+
+</body>
+
+</html>
