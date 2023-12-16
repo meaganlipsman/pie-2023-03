@@ -90,6 +90,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  width 
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -105,6 +106,11 @@ header,
 hgroup,
 menu,
 nav,
+
+
+
+
+/* collapsible */
 section {
   display: block;
 }
@@ -430,6 +436,22 @@ blockquote {
   .container {
     width: 100% !important;
   }
+}
+
+/* video */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+  max-width: 100%; /* Ensures that the video doesn't exceed the width of its container */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Row */
@@ -3191,7 +3213,7 @@ input[type="button"].small,
   /* Section/Article */
 
   header.major {
-    margin-bottom: 4em;
+    margin-bottom: 0em;
     padding: 3em 0;
   }
 
@@ -3208,7 +3230,7 @@ input[type="button"].small,
 
   .box {
     padding: 2.5em;
-    margin-bottom: 4em;
+    margin-bottom: 0em;
   }
 
   /* Feature */
