@@ -2935,7 +2935,7 @@ input[type="button"].small,
 				and a negative margin (to move everything up a bit).
 			*/
 
-  margin-top: -260px;
+  margin-top: -200px;
   padding: calc(460px + 6em) 0 10em 0;
   position: relative;
   text-align: center;
