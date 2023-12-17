@@ -11,41 +11,100 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <title>MathJax Equations</title>
+
+    <style>
+        /* Styles for #top-menu */
+        #top-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #054245;
+            z-index: 1000;
+            margin-bottom: 0; /* Adjust margin-bottom to zero */
+        }
+
+        #top-menu li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+
+        /* Styles for #sub-menu */
+        #sub-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 92%;
+            width: 170px;
+            /* background-color: ; Adjust background color as needed */
+            color: #5b5b5b; /* Adjust text color as needed */
+            padding-top: 5px;
+            padding-bottom: 0px; /* Adjust padding as needed */
+        }
+
+        #sub-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #sub-menu li {
+            float: center;
+            border-bottom: none; /* Remove underline */
+        }
+
+        #sub-menu li a:hover:not(.active) {
+            background-color: #d7d7d7;
+        }
+
+        #sub-menu li a {
+            display: block;
+            color: #5b5b5b;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+    </style>
+    <script>
+        window.addEventListener('scroll', function() {
+            var topMenu = document.getElementById('top-menu');
+            var sideMenu = document.getElementById('sub-menu');
+
+            if (window.scrollY > 0) {
+                topMenu.classList.add('scrolled');
+            } else {
+                topMenu.classList.remove('scrolled');
+            }
+        });
+    </script>
 </head>
-
-<style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-
-    li {
-        float: left;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover:not(.active) {
-        background-color: #111;
-    }
-
-    .active {
-        background-color: #04AA6D;
-    }
-</style>
-</head>
-
 <body>
-
+    <nav id="top-menu">
     <ul>
         <li><a href="./index.html">Home</a></li>
         <li><a href="./design_decisions.html">Design Decisions</a></li>
@@ -56,6 +115,19 @@
         <li><a href="./photos.html">Photos and Videos</a></li>
         <li><a href="./budget.html">Budget</a></li>
     </ul>
+    </nav>
+
+     <!-- Sub Menu -->
+  <nav id="sub-menu">
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#trajectory-prediction">Trajectory Prediction</a></li>
+      <li><a href="#inverse-kinematics">Inverse Kinematics</a></li>
+      <li><a href="#serial-comms">Serial Communications Interface</a></li>
+      <li><a href="#external-dependencies">External Dependencies</a></li>
+      <!-- Add more items as needed -->
+    </ul>
+  </nav>
 
 
     <div class="box container">
@@ -64,7 +136,7 @@
 
         </header>
         <section>
-            <section>
+            <section id="overview">
                 <header>
                     <p>Puckinator Software Overview: <a href="https://github.com/amandalchang/puckinator/blob/main/puckinator.py">Source Code</a></p>
                 </header>
@@ -77,8 +149,8 @@
                     coordinate_converter(). In the main loop, the optimal position and velocity vector are visualized on
                     top
                     of the OpenCV transformation and the angles are sent over serial to the firmware.</p>
-
-
+            </section>
+            <section id="opencv">
                 <h5>OpenCV Pipeline</h5>
                 <p><b>Camera Capture:</b>
                     <br> Our camera provides a 640x400 monochrome video stream in the MJPG format. We use the
@@ -102,8 +174,8 @@
                 <p>On each new webcam frame, we call <code>cv.warpPerspective()</code> with the calculated
                     transformation matrix to transform and crop the incoming image.</p>
 
-                <h5>Puck Detection</h5>
-                <p>Once we have a perspective corrected frame, the next step is to detect the puck using the ArUco
+                <p><b>Puck Detection</b>
+                    <br>Once we have a perspective corrected frame, the next step is to detect the puck using the ArUco
                     marker that’s taped onto it. We use the same <code>detectMarkers()</code> function from the
                     <code>cv.aruco</code> module. Using those results, we draw the detected markers on the frame for
                     visualization purposes. To find the puck, we filter the results to only look for a marker with the
@@ -112,7 +184,8 @@
                     returned in an instance of the <code>TimestampedPosition</code> dataclass which stores the position
                     and timestamp when the marker detection completed.
                 </p>
-
+            </section>
+            <section id="trajectory-prediction">
                 <h5>Trajectory Prediction</h5>
                 <p> In our main loop, we track the puck’s coordinate and timestamp at every frame and store it in an
                     instance of the dataclass <code>TimestampedPos</code> , which has member variables x, y, and
@@ -165,7 +238,8 @@
                     that the striker should move to to meet the puck. These are all drawn on top of the perspective
                     transform that appears once the transformation is initiated with the “c” key. All of the
                     visualization code lives outside <code>predict_trajectory()</code> in the main function.</p>
-
+            </section>
+            <section id="inverse-kinematics">
                 <h5>Inverse Kinematics</h5>
                 <img src="images/inverse_kinematics.svg" alt="" style="vertical-align: middle;">
                 <p>Pictured above is an abstracted diagram of our five bar linkage. Point S represents
@@ -199,20 +273,24 @@
                 </p>
                 <p><b>Rectangular to Angular:</b>
                     <br><em>Theta:</em>
-                    <br><img src="images/theta1.PNG" alt="" style="vertical-align: middle;">
+                    \[\text{diag1} = \sqrt{x^2 + x^y}\]
                     <br> The bottom angle of isosceles triangle, which I will call angle b, is defined by sides A, B
                     and
                     diag1.
                     Realizing that A and B are both ARM_LENGTH, the law of cosines therefore states:
-                    <br> <img src="images/theta2.PNG" alt="" style="vertical-align: middle;">
+                    \[L^2 = L^2 + \text{diag1}^2 - 2L\text{diag1} \cos(b)\]
+                    \[b = \cos^{-1}\left(\frac{\text{diag1}}{2L}\right)\]
+                    From this, we conclude that:
+                    \[\theta = \tan^{-1}\left(\frac{y}{x}\right) + \cos^{-1}\left(\frac{\text{diag1}}{2L}\right)\]
                     <br>
+
                     <br><em>Phi:</em>
-                    <br><img src="images/phi1.PNG" alt="" style="vertical-align: middle;">
+                    \[\text{diag2} = \sqrt{(\text{DISPLACEMENT} - x)^2 + y^2}\]
                     <br> Angle c of the isosceles triangle defined by C, D, and
                     diag2 can also be defined by law of cosines:
-                    <br><img src="images/phi2.PNG" alt="" style="vertical-align: middle;">
+                    \[c = \cos^{-1}\left(\frac{\text{diag2}}{2L}\right)\]
                     <br>From this it follows:
-                    <br><img src="images/phi1.PNG" alt="" style="vertical-align: middle;">
+                    \[\phi = \pi - \left(\cos^{-1}\left(\frac{\text{diag2}}{2L}\right) + \tan^{-1}\left(\frac{y}{\text{DISPLACEMENT} - x}\right)\right)\]
                     <br> These equations apply for when x > 0. However in the code implementation, we used the numpy
                     function
                     <code>arctan2</code> so that the angle contributions of the two triangles defined by x, y and
@@ -228,16 +306,19 @@
                     avoid zero
                     division errors.
                 </p>
+            </section>
+            <section id="serial-comms">
                 <h5>Serial Communications Interface</h5>
-                <p>Once <code>predict_trajectory()</code> and <code>coordinate_converter()</code> have done their jobs
-                    finding the best theta and phi values for the arm to move to based on the puck’s behavior, we must
-                    send these values over serial to our Arduino, which is responsible for turning those values into
-                    real-world motor movement. Once we initialize the arduino with a high baud rate to reduce latency
-                    and a write timeout to protect against overloading the queue, this is as simple as using the serial
-                    method <code>write()</code> to transfer those theta and phi values over. The inputs are adjusted by
-                    90 degrees because the stepper motors are zeroed at 90 degrees (As explained in the Firmware
-                    section).</p>
-
+                    <p>Once <code>predict_trajectory()</code> and <code>coordinate_converter()</code> have done their jobs
+                        finding the best theta and phi values for the arm to move to based on the puck’s behavior, we must
+                        send these values over serial to our Arduino, which is responsible for turning those values into
+                        real-world motor movement. Once we initialize the arduino with a high baud rate to reduce latency
+                        and a write timeout to protect against overloading the queue, this is as simple as using the serial
+                        method <code>write()</code> to transfer those theta and phi values over. The inputs are adjusted by
+                        90 degrees because the stepper motors are zeroed at 90 degrees (As explained in the Firmware
+                        section).</p>
+            </section>
+            <section id="external-dependencies">
                 <h5>External Dependencies</h5>
                 <p>Our external python dependecies are listed in the requirements.txt file found on our 
                     <a href = "https://github.com/amandalchang/puckinator">github</a>. They include OpenCV, NumPy, 

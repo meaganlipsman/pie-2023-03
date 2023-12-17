@@ -109,8 +109,6 @@ nav,
 
 
 
-
-/* collapsible */
 section {
   display: block;
 }
@@ -142,10 +140,88 @@ table {
   border-spacing: 0;
 }
 
+/* Styles for #top-menu */
+#top-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #054245;
+  z-index: 1000;
+  margin-bottom: 0; /* Adjust margin-bottom to zero */
+}
+
+#top-menu li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+/* Styles for #sub-menu */
+#sub-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 92%;
+  width: 170px;
+  /* background-color: ; Adjust background color as needed */
+  color: #5b5b5b; /* Adjust text color as needed */
+  padding-top: 5px;
+  padding-bottom: 0px; /* Adjust padding as needed */
+}
+
+#sub-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sub-menu li {
+  float: center;
+  border-bottom: none; /* Remove underline */
+}
+
+#sub-menu li a:hover:not(.active) {
+  background-color: #d7d7d7;
+}
+
+#sub-menu li a {
+  display: block;
+  color: #5b5b5b;
+  text-align: left;
+  text-decoration: none;
+}
+
+#top-menu.scrolled + #sub-menu {
+  top: 60px; /* Adjust the value based on the height of your top menu */
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+/* collapsible */
 input[type='checkbox'] { display: none; 
 } 
 
-.wrap-collapsible { margin: 1.2rem 0; 
+.wrap-collapsible { margin: 1.2rem 1.2rem; 
 } 
 .lbl-toggle { 
   display: block; 
@@ -172,7 +248,7 @@ input[type='checkbox'] { display: none;
   border-bottom: 5px solid transparent; 
   border-left: 5px solid currentColor; 
   vertical-align: middle; 
-  margin-right: .7rem; 
+  margin-right: 0.7rem; 
   transform: translateY(-2px); 
   transition: transform .2s ease-out; 
 } 
@@ -438,21 +514,6 @@ blockquote {
   }
 }
 
-/* video */
-.video-container {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
-  max-width: 100%; /* Ensures that the video doesn't exceed the width of its container */
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
 /* Row */
 

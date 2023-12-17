@@ -11,51 +11,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-</head>
-
-<style>
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-
-    li {
-        float: left;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover:not(.active) {
-        background-color: #111;
-    }
-
-    .active {
-        background-color: #04AA6D;
-    }
-</style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <title>MathJax Equations</title>
 </head>
 
 <body>
+    <nav id="top-menu">
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./design_decisions.html">Design Decisions</a></li>
+            <li><a href="./electrical.html">Electrical</a>
+            <li><a href="./mechanical.html">Mechanical</a></li>
+            <li><a class="active" href="./firmware.html">Firmware</a></li>
+            <li><a href="./software.html">Software</a></li>
+            <li><a href="./photos.html">Photos and Videos</a></li>
+            <li><a href="./budget.html">Budget</a></li>
+        </ul>
+    </nav>
 
-    <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./design_decisions.html">Design Decisions</a></li>
-        <li><a href="./electrical.html">Electrical</a>
-        <li><a href="./mechanical.html">Mechanical</a></li>
-        <li><a class="active" href="./firmware.html">Firmware</a></li>
-        <li><a href="./software.html">Software</a></li>
-        <li><a href="./photos.html">Photos and Videos</a></li>
-        <li><a href="./budget.html">Budget</a></li>
-    </ul>
+    <nav id="sub-menu">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#init">Initialization</a></li>
+            <li><a href="#homing">Homing</a></li>
+            <li><a href="#serial">Decoding Serial</a></li>
+            <li><a href="#loop">Primary Loop and Movement</a></li>
+        </ul>
+    </nav>
 
 
     <div class="box container">
@@ -64,7 +48,7 @@
 
         </header>
         <section>
-            <section>
+            <section id="overview">
                 <header>
                     <p>Puckinator Firmware Overview: <a href="https://github.com/amandalchang/puckinator/blob/main/Arm_Control/Arm_Control.ino">Source Code</a></p>
                 </header>
@@ -73,6 +57,8 @@
                     hockey table. It has three primary functionalities: homing, emergency stop, and manual debugging
                     mode. We used the FlexyStepper library to implement homing and facilitate stepper movement.
                 </p>
+            </section>
+            <section id="init">
                 <h5>Initialization</h5>
                 <p>We begin by declaring all of our constants and creating two instances of FlexyStepper: one called
                     stepper1 and one called stepper2, where stepper1 is the left motor and stepper2 is the right. In the
@@ -80,7 +66,8 @@
                     the de facto number of steps per revolution. Our mechanical system consisted of two Nema 23 Stepper
                     Motors each with 1600 steps per revolution and a gear ratio of 3. Our resultant number of steps per
                     resolution was therefore the product of the two, or 1600 * 3. </p>
-
+                </section>
+            <section id="homing">
                 <h5>Homing</h5>
                 <p>The function <code>moveToHomeInRevolutions()</code> from FlexyStepper has four inputs: a direction
                     toward home, a homing speed in revolutions per second, a max homing distance in revolutions, and the
@@ -102,7 +89,8 @@
                     consistently transfer the calculated angles from python to stepper motor revolution values. It also
                     means miscalibration caused by accidents in which the stepper motor skips steps can be easily
                     remedied through homing.</p>
-
+            </section>
+            <section id="serial">
                 <h5>Decoding Serial</h5>
                 <p>The Arduino, which is initialized with the same baud rate (115200) set in software, continually
                     receives the desired theta and phi values as a string in the format <code>“θ,φ”</code>. This is
@@ -114,7 +102,8 @@
                     the intended position of the motor. The converted theta value is fed to stepper1, while the
                     converted phi value is fed to stepper2.
                 </p>
-
+            </section>
+            <section id="loop">
                 <h5>Primary Loop and Movement</h5>
                 <p>In the primary loop, we call the function <code>processIncomingByte()</code> which decodes serial and
                     sets the target positions of the motors in revolutions. Once the decoding process is entirely
@@ -123,7 +112,6 @@
                     FlexyStepper function <code>motionComplete()</code> returns true. This was an important design
                     decision in greatly reducing our latency, as explained in the Major Design Decisions section.
                 </p>
-
             </section>
 
         </section>
