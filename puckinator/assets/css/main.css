@@ -216,6 +216,15 @@ li a:hover:not(.active) {
 .active {
   background-color: #04AA6D;
 }
+/* code */
+code {
+  font-family: "Roboto Mono", monospace;
+  color: #000000;
+  background-color: #e3eaef;
+  padding: 3px;
+  border-radius: 5px; /* You can adjust the value for the desired roundness */
+  font-size: 85%;
+}
 
 /* collapsible */
 input[type='checkbox'] { display: none; 

@@ -15,93 +15,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <title>MathJax Equations</title>
-
-    <style>
-        /* Styles for #top-menu */
-        #top-menu ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #054245;
-            z-index: 1000;
-            margin-bottom: 0; /* Adjust margin-bottom to zero */
-        }
-
-        #top-menu li {
-            float: left;
-        }
-
-        li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #111;
-        }
-
-        .active {
-            background-color: #04AA6D;
-        }
-
-        /* Styles for #sub-menu */
-        #sub-menu {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            height: 92%;
-            width: 170px;
-            /* background-color: ; Adjust background color as needed */
-            color: #5b5b5b; /* Adjust text color as needed */
-            padding-top: 5px;
-            padding-bottom: 0px; /* Adjust padding as needed */
-        }
-
-        #sub-menu ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        #sub-menu li {
-            float: center;
-            border-bottom: none; /* Remove underline */
-        }
-
-        #sub-menu li a:hover:not(.active) {
-            background-color: #d7d7d7;
-        }
-
-        #sub-menu li a {
-            display: block;
-            color: #5b5b5b;
-            text-align: left;
-            text-decoration: none;
-        }
-
-        li a:hover:not(.active) {
-            background-color: #111;
-        }
-
-        .active {
-            background-color: #04AA6D;
-        }
-    </style>
-    <script>
-        window.addEventListener('scroll', function() {
-            var topMenu = document.getElementById('top-menu');
-            var sideMenu = document.getElementById('sub-menu');
-
-            if (window.scrollY > 0) {
-                topMenu.classList.add('scrolled');
-            } else {
-                topMenu.classList.remove('scrolled');
-            }
-        });
-    </script>
+    
 </head>
 <body>
     <nav id="top-menu">
@@ -136,11 +50,12 @@
 
         </header>
         <section>
+            <header>
+                <p>Puckinator Software Overview: <a href="https://github.com/amandalchang/puckinator/blob/main/puckinator.py">Source Code</a></p>
+            </header>
             <section id="overview">
-                <header>
-                    <p>Puckinator Software Overview: <a href="https://github.com/amandalchang/puckinator/blob/main/puckinator.py">Source Code</a></p>
-                </header>
-                <h5>Abridged Overview</h5>
+                <hr>
+                <h5>Overview</h5>
                 <p>First, OpenCV transforms the frames from the camera to correct any distortion. The puck’s location is
                     determined once this transformation is complete. The puck’s movement is tracked by
                     predict_trajectory,
@@ -151,6 +66,7 @@
                     of the OpenCV transformation and the angles are sent over serial to the firmware.</p>
             </section>
             <section id="opencv">
+                <hr>
                 <h5>OpenCV Pipeline</h5>
                 <p><b>Camera Capture:</b>
                     <br> Our camera provides a 640x400 monochrome video stream in the MJPG format. We use the
@@ -186,6 +102,7 @@
                 </p>
             </section>
             <section id="trajectory-prediction">
+                <hr>
                 <h5>Trajectory Prediction</h5>
                 <p> In our main loop, we track the puck’s coordinate and timestamp at every frame and store it in an
                     instance of the dataclass <code>TimestampedPos</code> , which has member variables x, y, and
@@ -193,7 +110,8 @@
                     every new frame, making sure to store one past instance of <code>TimestampedPos</code> each time.
                 </p>
                 <b>predict_trajectory():</b>
-                <p>The function <code>predict_trajectory</code> then receives a <code>previous_position</code>, a
+                <ol>
+                <li><p>The function <code>predict_trajectory</code> then receives a <code>previous_position</code>, a
                     <code>latest_position</code>, and a constant <code>x_intercept</code> to calculate the velocity
                     vector of the puck using the change in time and change in position. <code>HITTING_POSITION</code>
                     represents the arbitrarily set x-value for which the robot will attempt to meet the puck. It also
@@ -202,25 +120,28 @@
                     bouncing, and puck bouncing. These all output <code>y_int</code>, which is the y-coordinate of the
                     desired position of the striker.
                 </p>
-
-                <p>If the puck is headed away from the robot (i.e. change in position is positive), has a speed
-                    less than a specified <code>SPEED_THRESHOLD</code>, or is traveling parallel to the y-axis, it
-                    simply copies the y-position of the puck and outputs no velocity vector. If none of the listed
-                    conditions are fulfilled, it moves on to two more options as detailed below.</p>
-                <p>If the intersection between the velocity line and the <code>HITTING_POSITION</code> is within the
-                    table’s bounds (in other words, it will not bounce before the robot tries to hit it), the function
-                    returns the y-value of the intersection.
-                </p>
-                <p>If it is projected to hit the side of the table before reaching <code>HITTING_POSITION</code>:
-                    <code>predict_next_bounce()</code> takes in the slope and y-intercept of the velocity line. It then
-                    outputs a predicted velocity line for after the bounce as well as the point at which the puck should
-                    bounce. This is done using the law of reflection, or the concept that the angle of incidence will
-                    equal the angle of reflection. Since we have lines rather than angles, we did this by negating the
-                    slope and calculating the new y-intercept using simple point-slope form. We determined which of the
-                    two walls (we only calculated bounces off of the long sides of the table) that the puck would hit
-                    based off the sign of the slope. We then stored the velocity lines at each bounce point in a list,
-                    which was outputted by the outer function <code>predict_trajectory()</code>.
-                </p>
+                    <ol>
+                        <li><p>If the puck is headed away from the robot (i.e. change in position is positive), has a speed
+                            less than a specified <code>SPEED_THRESHOLD</code>, or is traveling parallel to the y-axis, it
+                            simply copies the y-position of the puck and outputs no velocity vector. If none of the listed
+                            conditions are fulfilled, it moves on to two more options as detailed below.</p></li>
+                        <li><p>If the intersection between the velocity line and the <code>HITTING_POSITION</code> is within the
+                            table’s bounds (in other words, it will not bounce before the robot tries to hit it), the function
+                            returns the y-value of the intersection.
+                        </p></li>
+                        <li><p>If it is projected to hit the side of the table before reaching <code>HITTING_POSITION</code>:
+                            <code>predict_next_bounce()</code> takes in the slope and y-intercept of the velocity line. It then
+                            outputs a predicted velocity line for after the bounce as well as the point at which the puck should
+                            bounce. This is done using the law of reflection, or the concept that the angle of incidence will
+                            equal the angle of reflection. Since we have lines rather than angles, we did this by negating the
+                            slope and calculating the new y-intercept using simple point-slope form. We determined which of the
+                            two walls (we only calculated bounces off of the long sides of the table) that the puck would hit
+                            based off the sign of the slope. We then stored the velocity lines at each bounce point in a list,
+                            which was outputted by the outer function <code>predict_trajectory()</code>.
+                        </p></li>
+                    </ol>
+                    </li>
+                </ol>
                 <p>Aside from the velocity lines list, the function also outputs an instance of the dataclass
                     <code>TrajectoryPrediction</code>, which includes the predicted x-position of the puck, the
                     predicted y-position, the change in x, the change in y, and the predicted time that the puck will
@@ -240,6 +161,7 @@
                     visualization code lives outside <code>predict_trajectory()</code> in the main function.</p>
             </section>
             <section id="inverse-kinematics">
+                <hr>
                 <h5>Inverse Kinematics</h5>
                 <img src="images/inverse_kinematics.svg" alt="" style="vertical-align: middle;">
                 <p>Pictured above is an abstracted diagram of our five bar linkage. Point S represents
@@ -293,7 +215,7 @@
                     \[\phi = \pi - \left(\cos^{-1}\left(\frac{\text{diag2}}{2L}\right) + \tan^{-1}\left(\frac{y}{\text{DISPLACEMENT} - x}\right)\right)\]
                     <br> These equations apply for when x > 0. However in the code implementation, we used the numpy
                     function
-                    <code>arctan2</code> so that the angle contributions of the two triangles defined by x, y and
+                    <code>arctan2()</code> so that the angle contributions of the two triangles defined by x, y and
                     diag1 and by x, y,
                     and diag 2 respectively would continue to function when point S had a negative x value. When the
                     x
@@ -308,6 +230,7 @@
                 </p>
             </section>
             <section id="serial-comms">
+                <hr>
                 <h5>Serial Communications Interface</h5>
                     <p>Once <code>predict_trajectory()</code> and <code>coordinate_converter()</code> have done their jobs
                         finding the best theta and phi values for the arm to move to based on the puck’s behavior, we must
@@ -319,6 +242,7 @@
                         section).</p>
             </section>
             <section id="external-dependencies">
+                <hr>
                 <h5>External Dependencies</h5>
                 <p>Our external python dependecies are listed in the requirements.txt file found on our 
                     <a href = "https://github.com/amandalchang/puckinator">github</a>. They include OpenCV, NumPy, 
