@@ -352,18 +352,18 @@ textarea {
 }
 
 a {
-  -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  /* -moz-transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
   -webkit-transition: color 0.2s ease-in-out,
-    border-bottom-color 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
+  text-decoration-color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out; */
+  transition: color 0.2s ease-in-out, text-decoration-color 0.2s ease-in-out;
+  /* border-bottom: dotted 1px; */
   color: #054245;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:hover {
-  border-bottom-color: transparent;
+  text-decoration-color: transparent;
 }
 
 strong,
