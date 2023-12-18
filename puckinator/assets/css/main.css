@@ -185,6 +185,10 @@ li a:hover:not(.active) {
   padding: 0;
 }
 
+#sub-menu a {
+  background-image: none;
+}
+
 #sub-menu li {
   float: center;
   border-bottom: none; /* Remove underline */
