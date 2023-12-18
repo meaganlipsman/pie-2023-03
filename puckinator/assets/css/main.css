@@ -225,6 +225,15 @@ code {
   border-radius: 5px; /* You can adjust the value for the desired roundness */
   font-size: 85%;
 }
+/* code-block */
+#code-block {
+  font-family: "Roboto Mono", monospace;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 3px;
+  border-radius: 5px; /* You can adjust the value for the desired roundness */
+  font-size: 85%;
+}
 
 /* collapsible */
 input[type="checkbox"] {

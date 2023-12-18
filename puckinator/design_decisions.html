@@ -7,6 +7,7 @@
 <html>
 
 <head>
+    <link rel="icon" href="images/favicon.png">
     <title>Puckinator</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -203,7 +204,32 @@
             <p>The FlexyStepper function <code>processMovement()</code>, which moves the stepper one step in the
                 direction of movement, is intended to be in a while loop which runs until the motion is complete (as
                 found in the documentation of FlexyStepper). </p>
-            <p><code>void loop() {</code></p>
+
+            <span></span><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#e3eaef;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loop()</span>{
+                </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_right_thrust</span>(self, thrust):
+                </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_right_engine_thrust <span style="color:#f92672">=</span> thrust
+                </span></span><span style="display:flex;"><span>        
+                </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">total_thrust</span>(self):
+                </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_left_engine_thrust <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>_right_engine_thrust
+                </span></span></code></pre></div>
+                <pre>
+<code-block>void loop() {
+while (Serial.available() > 0) {
+    processIncomingByte(Serial.read());
+    // read the first byte in the serial buffer
+}
+
+if (!stepper1.motionComplete()) {
+    stepper1.processMovement();  // this call moves the motor
+}
+
+if (!stepper2.motionComplete()) {
+    stepper2.processMovement();  // this call moves the motor
+}
+}
+</code-block>
+                  </pre>
+            <!-- <p><code>void loop() {</code></p>
             <p><code>  while (Serial.available() > 0) {</code></p>
             <p><code>    processIncomingByte(Serial.read());</code></p>
             <p><code>    // read the first byte in the serial buffer</code></p>
@@ -213,7 +239,7 @@
             <p><code>  }</code></p>
             <p><code>  if (!stepper2.motionComplete()) {</code></p>
             <p><code>    stepper2.processMovement();  // this call moves the motor</code></p>
-            <p><code>  }</code></p>
+            <p><code>  }</code></p> -->
             <p>In the source code above, <code>processIncomingByte()</code>, <code>processMovement()</code>, and
                 <code>motionComplete()</code> are all blocking functions. Importantly, we put
                 <code>processMovement()</code> in an if block in the greater primary loop rather than in its intended
