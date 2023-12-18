@@ -166,12 +166,12 @@
                 <hr>
                 <h5>Inverse Kinematics</h5>
                 <img src="images/software-images/inverse_kinematics.svg" alt="" style="vertical-align: middle;">
-                <p>Pictured above is an abstracted diagram of our five bar linkage. Point S represents
+                <p>Pictured above is an abstracted diagram of our five bar linkage. Point P represents
                     the center of the striker, while sides A through D represent the arms of the linkage.
                     (0, 0) in the inverse kinematics coordinate frame is the center of the left stepper motor
                     shaft, while (0, 0) in the OpenCV coordinate frame is the upper left corner of the upper
                     left ArUco Marker affixed to the table. Angles theta and phi represent the required angles
-                    of our two stepper motors to move the striker to point S.
+                    of our two stepper motors to move the striker to point P.
                 </p>
                 <p><b>Coordinate Conversion:</b>
                     <br>In the file <code>puckinator.py</code>, a separate function
@@ -201,7 +201,7 @@
                     <br> The bottom angle of isosceles triangle, which I will call angle b, is defined by sides A, B
                     and
                     diag1.
-                    Realizing that A and B are both ARM_LENGTH, the law of cosines therefore states:
+                    Realizing that A and B are both length L, the law of cosines therefore states:
                     \[L^2 = L^2 + \text{diag1}^2 - 2L\text{diag1} \cos(b)\]
                     \[b = \cos^{-1}\left(\frac{\text{diag1}}{2L}\right)\]
                     From this, we conclude that:
@@ -209,17 +209,17 @@
                     <br>
 
                     <br><em>Phi:</em>
-                    \[\text{diag2} = \sqrt{(\text{DISPLACEMENT} - x)^2 + y^2}\]
+                    \[\text{diag2} = \sqrt{(s - x)^2 + y^2}\]
                     <br> Angle c of the isosceles triangle defined by C, D, and
                     diag2 can also be defined by law of cosines:
                     \[c = \cos^{-1}\left(\frac{\text{diag2}}{2L}\right)\]
                     <br>From this it follows:
-                    \[\phi = \pi - \left(\cos^{-1}\left(\frac{\text{diag2}}{2L}\right) + \tan^{-1}\left(\frac{y}{\text{DISPLACEMENT} - x}\right)\right)\]
+                    \[\phi = \pi - \left(\cos^{-1}\left(\frac{\text{diag2}}{2L}\right) + \tan^{-1}\left(\frac{y}{s - x}\right)\right)\]
                     <br> These equations apply for when x > 0. However in the code implementation, we used the numpy
                     function
                     <code>arctan2()</code> so that the angle contributions of the two triangles defined by x, y and
                     diag1 and by x, y,
-                    and diag 2 respectively would continue to function when point S had a negative x value. When the
+                    and diag 2 respectively would continue to function when point P had a negative x value. When the
                     x
                     value of the striker becomes negative, the right triangles mentioned previously flip vertically.
                     For
