@@ -4,7 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 
 <head>
     <link rel="icon" href="images/favicon.png">
@@ -15,7 +15,27 @@
     <script type="text/javascript" async
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    <title>MathJax Equations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/papercolor-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+    .hljs {
+      background-color: #e3eaef; /* Background color of the code block */
+    }
+    pre {
+        background-color: #e3eaef;
+        white-space: pre-wrap;
+        font-family: 'Courier New', monospace;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-radius: 30px;
+    }
+    .hljs .cpp {
+        color: #054245; /* Your desired color for void loop() */
+    }
+    </style>
 </head>
 
 <body>
@@ -203,17 +223,8 @@
             <br>
             <p>The FlexyStepper function <code>processMovement()</code>, which moves the stepper one step in the
                 direction of movement, is intended to be in a while loop which runs until the motion is complete (as
-                found in the documentation of FlexyStepper). </p>
-
-            <span></span><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#e3eaef;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">loop()</span>{
-                </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_right_thrust</span>(self, thrust):
-                </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>_right_engine_thrust <span style="color:#f92672">=</span> thrust
-                </span></span><span style="display:flex;"><span>        
-                </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">total_thrust</span>(self):
-                </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_left_engine_thrust <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>_right_engine_thrust
-                </span></span></code></pre></div>
-                <pre>
-<code-block>void loop() {
+                found in the documentation of FlexyStepper).
+<pre><code class="cpp">void loop() {
 while (Serial.available() > 0) {
     processIncomingByte(Serial.read());
     // read the first byte in the serial buffer
@@ -227,20 +238,9 @@ if (!stepper2.motionComplete()) {
     stepper2.processMovement();  // this call moves the motor
 }
 }
-</code-block>
-                  </pre>
-            <!-- <p><code>void loop() {</code></p>
-            <p><code>  while (Serial.available() > 0) {</code></p>
-            <p><code>    processIncomingByte(Serial.read());</code></p>
-            <p><code>    // read the first byte in the serial buffer</code></p>
-            <p><code>  }</code></p>
-            <p><code>if (!stepper1.motionComplete()) {</code></p>
-            <p><code>    stepper1.processMovement();  // this call moves the motor</code></p>
-            <p><code>  }</code></p>
-            <p><code>  if (!stepper2.motionComplete()) {</code></p>
-            <p><code>    stepper2.processMovement();  // this call moves the motor</code></p>
-            <p><code>  }</code></p> -->
-            <p>In the source code above, <code>processIncomingByte()</code>, <code>processMovement()</code>, and
+</code></pre>
+            <br>
+            In the source code above, <code>processIncomingByte()</code>, <code>processMovement()</code>, and
                 <code>motionComplete()</code> are all blocking functions. Importantly, we put
                 <code>processMovement()</code> in an if block in the greater primary loop rather than in its intended
                 while loop. This means that for each iteration in <code>loop()</code>, the serial port data will be
