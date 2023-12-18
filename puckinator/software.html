@@ -33,17 +33,21 @@
     </nav>
 
      <!-- Sub Menu -->
-  <nav id="sub-menu">
-    <ul>
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#opencv">OpenCV Pipeline</a></li>
-      <li><a href="#trajectory-prediction">Trajectory Prediction</a></li>
-      <li><a href="#inverse-kinematics">Inverse Kinematics</a></li>
-      <li><a href="#serial-comms">Serial Communications Interface</a></li>
-      <li><a href="#external-dependencies">External Dependencies</a></li>
-      <!-- Add more items as needed -->
-    </ul>
-  </nav>
+     <div id="menu-container">
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776; Menu</label> <!-- Customize as needed -->
+        <nav id="sub-menu">
+          <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#opencv">OpenCV Pipeline</a></li>
+                <li><a href="#trajectory-prediction">Trajectory Prediction</a></li>
+                <li><a href="#inverse-kinematics">Inverse Kinematics</a></li>
+                <li><a href="#serial-comms">Serial Communications Interface</a></li>
+                <li><a href="#external-dependencies">External Dependencies</a></li>
+                <!-- Add more items as needed -->
+            </ul>
+        </nav>
+      </div>
 
 
     <div class="box container">
@@ -252,7 +256,6 @@
             </section>
 
         </section>
-
 
 
 

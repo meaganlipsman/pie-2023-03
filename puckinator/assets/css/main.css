@@ -167,8 +167,23 @@ li a:hover:not(.active) {
   background-color: #04aa6d;
 }
 
+/* Styles for the menu container and toggle */
+#menu-container {
+  position: relative;
+}
+
+#menu-toggle {
+  display: none; /* Hide the checkbox */
+}
+
+.menu-icon {
+  display: none; /* Hide by default, shown in small screens */
+  cursor: pointer;
+}
+
 /* Styles for #sub-menu */
 #sub-menu {
+  display: none; /* Hide the menu by default */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -203,6 +218,30 @@ li a:hover:not(.active) {
   color: #5b5b5b;
   text-align: left;
   text-decoration: none;
+}
+
+/* Display the menu when menu-toggle is checked */
+#menu-toggle:checked ~ #sub-menu {
+  display: block;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  /* Show the menu icon on small screens */
+  .menu-icon {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* Additional styling as needed */
+  }
+
+  #sub-menu {
+    /* Adjust styles for small screens */
+    position: absolute;
+    width: 100%;
+    top: 30px; /* Adjust based on menu icon size */
+  }
 }
 
 #top-menu.scrolled + #sub-menu {
