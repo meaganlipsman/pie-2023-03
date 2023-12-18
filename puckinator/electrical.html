@@ -37,8 +37,8 @@
 			<section>
 			<hr>
 			<h4>Schematic</h4>
-			<div style="text-align: center;">
-				<img width="800" src="images/electrical-images/schematic.png" alt="Electrical System Schematic">
+			<div class="image-container">
+				<img src="images/electrical-images/schematic.png" alt="Electrical System Schematic">
 			</div>
 			<hr>
 			<h4>Stepper Motors and Motor Drivers Wiring</h4>
@@ -51,8 +51,9 @@
 				would supply enough torque to move our arm as quickly as we needed to. Additionally, we chose
 				the
 				TB6600 Stepper Motor Drivers to match the amperage of our motors. </p>
-			<img width="800" src="images/electrical-images/stepper motors.jpg" alt=""
-				style="vertical-align: middle;">
+			<div class="image-container">
+			<img src="images/electrical-images/stepper motors.jpg" alt="" style="vertical-align: middle;">
+			</div>
 			<br>
 			</section>
 			<section id="motors">
@@ -65,7 +66,10 @@
 				that the red and blue wires and the black and green wires were paired. These pairs, respectively, were
 				wired directly to the A+, A-, B+, and B- spots on the stepper driver.
 			</p>
+			<div class="image-container">
 			<img width="800" src="images/electrical-images/How it connected to the motors.jpg" alt="" style="vertical-align: middle;">
+			<div class="image-container">
+
 			</section>
 			<br>
 			<section id="power">
@@ -75,7 +79,10 @@
 				stepper drivers were connected to separate power and ground ports on the power supply. The power supply
 				was set so that each stepper driver could receive 18 volts and about 4 amps.
 			</p>
+			<div class="image-container">
+
 			<img width="800" src="images/electrical-images/Power Supply.jpg" alt="" style="vertical-align: middle;">
+			</div>
 			</section>
 			<br>
 			<section id="arduino">
@@ -89,7 +96,9 @@
 				and D10 respectively. To prevent accidental disconnects, we soldered each wire to header pins we plugged 
 				into the Arduino.
 			</p>
+			<div class="image-container">
 			<img width="800" src="images/electrical-images/How it connected to the Arduino.jpg" alt="" style="vertical-align: middle;">
+			</div>
 			<br>
 			<br>
 			<hr>
@@ -102,7 +111,9 @@
 				connected to digital pins of the Arduino. As such, the signal line for end stop switch 1 and 2 were
 				connected to digital pins D11 and D12 respectively.
 			</p>
+			<div class="image-container">
 			<img width="800" src="images/electrical-images/End Stop Switches.jpg" alt="" style="vertical-align: middle;">
+			</div>
 			<br>
 			<p class="indent">To home our stepper motors, we used two limit switch end stops each equipped with 
 				three wires: 5V power, ground, and digital signal. We connected the left and right signal wires to pins D11 and 
@@ -111,7 +122,9 @@
 				We also added an E-stop to stop all movement of the arm should something go wrong. To accomplish this, 
 				we connected one pin of a large red push button to Arduino interrupt pin D2 and the other pin to ground.
 			</p>
+			<div class="image-container">
 			<img width="800" src="images/electrical-images/E-Stop.jpg" alt="" style="vertical-align: middle;">
+			</div>
 			</section>
 
 

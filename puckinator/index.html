@@ -5,549 +5,340 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+  <head>
+    <style>
+      #favicon {
+        max-width: 128px;
+        /* Set the maximum width */
+        max-height: 128px;
+        /* Set the maximum height */
+      }
+    </style>
+    <link rel="icon" href="images/favicon.png" />
+    <title>Puckinator</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
 
-<head>
-	<style>
-		#favicon {
-			max-width: 128px;
-			/* Set the maximum width */
-			max-height: 128px;
-			/* Set the maximum height */
-		}
-	</style>
-	<link rel="icon" href="images/favicon.png">
-	<title>Puckinator</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-</head>
+  <body>
+    <nav id="top-menu">
+      <ul>
+        <li><a class="active" href="./index.html">Home</a></li>
+        <li><a href="./design_decisions.html">Design Decisions</a></li>
+        <li><a href="./electrical.html">Electrical</a></li>
+        <li><a href="./mechanical.html">Mechanical</a></li>
+        <li><a href="./firmware.html">Firmware</a></li>
+        <li><a href="./software.html">Software</a></li>
+        <li><a href="./photos.html">Photos and Videos</a></li>
+        <li><a href="./budget.html">Budget</a></li>
+      </ul>
+    </nav>
 
-<body>
-	<nav id="top-menu">
-		<ul>
-			<li><a class="active" href="./index.html">Home</a></li>
-			<li><a href="./design_decisions.html">Design Decisions</a></li>
-			<li><a href="./electrical.html">Electrical</a>
-			<li><a href="./mechanical.html">Mechanical</a></li>
-			<li><a href="./firmware.html">Firmware</a></li>
-			<li><a href="./software.html">Software</a></li>
-			<li><a href="./photos.html">Photos and Videos</a></li>
-			<li><a href="./budget.html">Budget</a></li>
-		</ul>
-	</nav>
-
-	<!-- Header -->
-	<div id="header">
-		<!-- <span class="logo icon fa-paper-plane"></span> -->
-		<img src="images/homepage/Logo Photo.jpg" alt="Puckinator Logo" />
-		<!-- <h1>Puckinator.</h1> -->
-		<h3>Never play air hockey alone again</h3>
-		<!-- <p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
+    <!-- Header -->
+    <div id="header">
+      <!-- <span class="logo icon fa-paper-plane"></span> -->
+      <div class="image-container">
+        <img src="images/homepage/Logo Photo.jpg" alt="Puckinator Logo" />
+      </div>
+      <!-- <h1>Puckinator.</h1> -->
+      <h3>Never play air hockey alone again</h3>
+      <!-- <p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
 			<br />
 			and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>. -->
-		<!-- </p> -->
-	</div>
+      <!-- </p> -->
+    </div>
 
-	<!-- Main -->
-	<div id="main">
-		<header class="major container large">
-			<h2>
-				A robotic arm
-				<br />
-				that can play air hockey against you.
-				<br />
-				No partner needed.
-			</h2>
-			<br />
-			<div class="wrap-collapsible"> <input id="collapsible1" class="toggle" type="checkbox" checked=""> <label
-					for="collapsible1" class="lbl-toggle">Project Goals</label>
-				<div class="collapsible-content">
-					<div class="box container">
-						<div style="text-align: left">
-							<span>
-								Our team aimed to create a robotic air hockey player. We
-								were excited about the concept of creating a fun, interactive
-								project and decided air hockey was the perfect game. Our main
-								objectives were to create a final project that:
-								<br />
-								<br />
-								1. Made us proud as a team - i.e. a polished final project
-								that works well and is fun to play.
-								<br />
-								2. Was scalable and reasonable for our time frame (approximately 13
-								weeks) and had a achievable minimum viable product and stretch
-								goals.
-								<br />
-								3. Had enough technical challenges for our individual learning goals
-								<br />
-								4. Allowed us to maintain a healthy teaming dynamic with our fellow
-								classmates.
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
+    <!-- Main -->
+    <div id="main">
+      <header class="major container large">
+        <h2>
+          A robotic arm
+          <br />
+          that can play air hockey against you.
+          <br />
+          No partner needed.
+        </h2>
+        <br />
+        <div class="wrap-collapsible">
+          <input id="collapsible1" class="toggle" type="checkbox" checked="" />
+          <label for="collapsible1" class="lbl-toggle">Project Goals</label>
+          <div class="collapsible-content">
+            <div class="box container">
+              <div style="text-align: left">
+                <span>
+                  Our team aimed to create a robotic air hockey player. We were
+                  excited about the concept of creating a fun, interactive
+                  project and decided air hockey was the perfect game. Our main
+                  objectives were to create a final project that:
+                  <br />
+                  <br />
+                  1. Made us proud as a team - i.e. a polished final project
+                  that works well and is fun to play.
+                  <br />
+                  2. Was scalable and reasonable for our time frame
+                  (approximately 13 weeks) and had a achievable minimum viable
+                  product and stretch goals.
+                  <br />
+                  3. Had enough technical challenges for our individual learning
+                  goals
+                  <br />
+                  4. Allowed us to maintain a healthy teaming dynamic with our
+                  fellow classmates.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="box container">
+      <h2>Design Process</h2>
+      <div style="aspect-ratio: 16/9; width: 100%">
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/9_xLwALPo-s?si=tRpvlI3bjryqqLw6"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="container">
+      <div class="wrap-collapsible">
+        <input id="systemoverview" class="toggle" type="checkbox" checked="" />
+        <label for="systemoverview" class="lbl-toggle">System Overview</label>
+        <div class="collapsible-content">
+          <div class="box container">
+            <div class="image-container">
+              <img
+                width="840"
+                src="images/homepage/System Overview.PNG"
+                alt="Puckinator System Overview"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="wrap-collapsible">
+        <input id="collapsible2" class="toggle" type="checkbox" checked="" />
+        <label for="collapsible2" class="lbl-toggle">Sprint Breakdown</label>
+        <div class="collapsible-content">
+          <div class="box container">
+            <h5>Sprint 1</h5>
+            <table width="800">
+              <tr>
+                <td align="left" style="vertical-align: top">
+                  <span width="400">
+                    In sprint 1, we completed our most basic MVP of a single
+                    robotic arm that was able to play defense. We started with
+                    electrically integrating our stepper motors, stepper
+                    drivers, Arduino, camera, and power supply. Using OpenCV in
+                    python, we corrected camera distortion and tracked the
+                    puck’s location. We sent the location to the Arduino via
+                    serial communication. Finally, we wrote arm control firmware
+                    using ArduinoIDE that would rotate the arm to match the
+                    y-position of the puck. Alongside the electrical and
+                    software components we also fabricated the first version of
+                    our gear box, the single arm, and a prototype camera mount.
+                  </span>
+                </td>
+                <td align="right" style="vertical-align: top">
+                  <img
+                    width="400"
+                    src="images/homepage/Sprint1gif.gif"
+                    alt="Sprint 1 System Gif"
+                  />
+                </td>
+              </tr>
+            </table>
+            <h5>Sprint 2</h5>
+            <table width="800">
+              <tr>
+                <td align="left" style="vertical-align: top">
+                  <img
+                    width="400"
+                    src="images/homepage/Sprint2gif.gif"
+                    alt="Sprint 2 System Gif"
+                  />
+                </td>
+                <td align="right" style="vertical-align: top">
+                  <span width="400">
+                    In sprint 2, we completed our target goal of a parallel
+                    SCARA that could play basic defense by matching y-position.
+                    The main task for mechanical in this sprint was fabricating
+                    the parallel SCARA and new gear boxes. Our main electrical
+                    tasks were to wire the second stepper motor and stepper
+                    driver into the Arduino and incorporate end stop switches
+                    for homing. Additionally, we integrated a better power
+                    supply with short circuit protection for safety purposes. On
+                    the software side, we calculated the inverse kinematics to
+                    be able to control the new arm and integrated this into our
+                    current software system. We purchased a new high-frame rate
+                    camera and debugged serial communication overflow issues,
+                    which led to a significant reduction in latency.
+                  </span>
+                </td>
+              </tr>
+            </table>
+            <h5>Sprint 3</h5>
+            <table width="800">
+              <tr>
+                <td align="left" style="vertical-align: top">
+                  <span width="400">
+                    In sprint 3, we worked towards our reach goals of trajectory
+                    prediction software, robust mounting, and beautification. To
+                    achieve this, we calculated the velocity vector of the puck
+                    and defined several different modes of behavior depending on
+                    whether the puck would bounce, head back towards the player,
+                    or head directly towards the robot. We built a better
+                    overhead camera mount, attached the two gear boxes together
+                    and to the table, integrated an E-stop button, harnessed our
+                    cables and created an electrical enclosure.
+                  </span>
+                </td>
+                <td align="right" style="vertical-align: top">
+                  <img
+                    width="400"
+                    src="images/homepage/Sprint3gif.gif"
+                    alt="Sprint 3 System Gif"
+                  />
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 
-			<!--
-					<p>Tellus erat mauris ipsum fermentum<br />
-					etiam vivamus nunc nibh morbi.</p>
-					-->
-		</header>
-		<!--
-			<section class=" feature right">
-						<img src="images/homepage/System Overview.PNG" alt="Puckinator System Overview"
-							class="image icon solid fa-signal">
-						<div class="content">
-							<h3>System Overview</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci
-								penatibus.
-								Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.
-							</p>
-						</div>
-			</section>
-			<section class="feature left">
-				<a href="#" class="image icon solid fa-mobile-alt"><img src="images/pic03.jpg" alt="" /></a>
-				<div class="content">
-					<h3>Budget</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus.
-						Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
-				</div> -->
-	</div>
-	<div class="box container">
-		<h2>Design Process</h2>
-		<div style="text-align: center">
-			<iframe width="840" height="472.5" src="https://www.youtube.com/embed/9_xLwALPo-s?si=tRpvlI3bjryqqLw6"
-				title="YouTube video player" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowfullscreen></iframe>
-		</div>
-	</div>
-	<center>
-		<div class="wrap-collapsible"> <input id="systemoverview" class="toggle" type="checkbox" checked=""> <label
-				for="systemoverview" class="lbl-toggle">System Overview</label>
-			<div class="collapsible-content">
-				<div class="box container">
-					<div style="text-align: center">
-						<img width="840" src="images/homepage/System Overview.PNG" alt="Puckinator System Overview" />
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="wrap-collapsible"> <input id="collapsible2" class="toggle" type="checkbox" checked=""> <label
-				for="collapsible2" class="lbl-toggle">Sprint Breakdown</label>
-			<div class="collapsible-content">
-				<div class="box container">
-					<h5>Sprint 1</h5>
-					<table width="800">
-						<tr>
-							<td align="left" style="vertical-align: top">
-								<span width="400">
-									In sprint 1, we completed our most basic MVP of a single robotic
-									arm that was able to play defense. We started with electrically
-									integrating our stepper motors, stepper drivers, Arduino, camera,
-									and power supply. Using OpenCV in python, we corrected camera
-									distortion and tracked the puck’s location. We sent the location
-									to the Arduino via serial communication. Finally, we wrote arm
-									control firmware using ArduinoIDE that would rotate the arm to
-									match the y-position of the puck. Alongside the electrical and
-									software components we also fabricated the first version of our
-									gear box, the single arm, and a prototype camera mount.
-								</span>
-							</td>
-							<td align="right" style="vertical-align: top">
-								<img width="400" src="images/homepage/Sprint1gif.gif" alt="Sprint 1 System Gif" />
-							</td>
-						</tr>
-					</table>
-					<h5>Sprint 2</h5>
-					<table width="800">
-						<tr>
-							<td align="left" style="vertical-align: top">
-								<img width="400" src="images/homepage/Sprint2gif.gif" alt="Sprint 2 System Gif" />
-							</td>
-							<td align="right" style="vertical-align: top">
-								<span width="400">
-									In sprint 2, we completed our target goal of a parallel SCARA that
-									could play basic defense by matching y-position. The main task for
-									mechanical in this sprint was fabricating the parallel SCARA and
-									new gear boxes. Our main electrical tasks were to wire the second
-									stepper motor and stepper driver into the Arduino and incorporate
-									end stop switches for homing. Additionally, we integrated a better
-									power supply with short circuit protection for safety purposes. On
-									the software side, we calculated the inverse kinematics to be able
-									to control the new arm and integrated this into our current
-									software system. We purchased a new high-frame rate camera and
-									debugged serial communication overflow issues, which led to a
-									significant reduction in latency.
-								</span>
-							</td>
-						</tr>
-					</table>
-					<h5>Sprint 3</h5>
-					<table width="800">
-						<tr>
-							<td align="left" style="vertical-align: top">
-								<span width="400">
-									In sprint 3, we worked towards our reach goals of trajectory
-									prediction software, robust mounting, and beautification. To
-									achieve this, we calculated the velocity vector of the puck and
-									defined several different modes of behavior depending on whether
-									the puck would bounce, head back towards the player, or head
-									directly towards the robot. We built a better overhead camera
-									mount, attached the two gear boxes together and to the table,
-									integrated an E-stop button, harnessed our cables and created an
-									electrical enclosure.
-								</span>
-							</td>
-							<td align="right" style="vertical-align: top">
-								<img width="400" src="images/homepage/Sprint3gif.gif" alt="Sprint 3 System Gif" />
-							</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</center>
+    <!-- Footer -->
+    <div id="footer">
+      <div class="container large">
+        <header class="major last">
+          <h2>About Us!</h2>
+        </header>
+        <section class="feature left">
+          <img
+            src="images/team-photos/AmandaChang.jpeg"
+            alt=""
+            height="400"
+            width="400"
+            style="vertical-align: middle"
+          />
+          <div class="content">
+            <h3>Amanda Chang</h3>
+            <p>
+              <b>Class of 2026 <br />Electrical and Computer Engineering</b>
+              <br />Amanda is interested in electrical and software systems. She
+              worked closely with OpenCV, inverse kinematics, puck trajectory
+              prediction, and end-to-end latency reduction.
+              <br />
+              <em>achang2@olin.edu</em>
+            </p>
+          </div>
+        </section>
+        <br />
+        <section class="feature left">
+          <img
+            src="images/team-photos/BenTarr.jpg"
+            alt=""
+            height="400"
+            width="400"
+            style="vertical-align: middle"
+          />
+          <div class="content" text-align="top">
+            <h3>Ben Tarr</h3>
+            <p>
+              <b>Class of 2026 <br />Engineering: Robotics </b> <br />
+              Ben is interested in robotics and systems integration. He worked
+              primarily on the OpenCV code and Arduino firmware, but also helped
+              out with mechanical design and electrical integration.
+              <br />
+              <em>btarr@olin.edu</em>
+            </p>
+          </div>
+        </section>
+        <br />
+        <section class="feature left">
+          <img
+            src="images/team-photos/ElinONeill.jpg"
+            alt=""
+            height="400"
+            width="400"
+            style="vertical-align: middle"
+          />
+          <div class="content">
+            <h3>Elin O'Neill</h3>
+            <p>
+              <b>Class of 2026 <br />Engineering: Computing</b> <br />Elin is
+              interested in software, more specifically arm control code, and
+              administrative duties such as documentation and communicating
+              project progress and results.
+              <br />
+              <em>eoneill@olin.edu</em>
+            </p>
+          </div>
+        </section>
+        <br />
+        <section class="feature left">
+          <img
+            src="images/team-photos/LilyDao.JPG"
+            alt=""
+            height="400"
+            width="400"
+            style="vertical-align: middle"
+          />
+          <div class="content">
+            <h3>Lily Dao</h3>
+            <p>
+              <b>Class of 2026 <br />Mechanical Engineering</b> <br />Lily is
+              interested in design and fabrication and worked on the majority of
+              the mechanical design for this project.
+              <br />
+              <em>ldao@olin.edu</em>
+            </p>
+          </div>
+        </section>
+        <br />
+        <section class="feature left">
+          <img
+            src="images/team-photos/MeaganLipsman.jpg"
+            alt=""
+            height="400"
+            width="400"
+            style="vertical-align: middle"
+          />
+          <div class="content">
+            <h3>Meagan Lipsman</h3>
+            <p>
+              <b>Class of 2026 <br />Electrical and Computer Engineering</b>
+              <br />Meagan is interested in working with electrical systems and
+              components, harnessing, and project management. She served as
+              project manager for the team and worked primarily on the
+              electrical and firmware components of the project.
+              <br />
+              <em>mlipsman@olin.edu</em>
+            </p>
+          </div>
+        </section>
 
-	<!-- <div class="box container">
-      <h5>Sprint 1</h5>
-      <table width="800">
-        <tr>
-          <td align="left" style="vertical-align: top">
-            <span width="400">
-              In sprint 1, we completed our most basic MVP of a single robotic
-              arm that was able to play defense. We started with electrically
-              integrating our stepper motors, stepper drivers, Arduino, camera,
-              and power supply. Using OpenCV in python, we corrected camera
-              distortion and tracked the puck’s location. We sent the location
-              to the Arduino via serial communication. Finally, we wrote arm
-              control firmware using ArduinoIDE that would rotate the arm to
-              match the y-position of the puck. Alongside the electrical and
-              software components we also fabricated the first version of our
-              gear box, the single arm, and a prototype camera mount.
-            </span>
-          </td>
-          <td align="right" style="vertical-align: top">
-            <img
-              width="400"
-              src="images/homepage/Sprint1gif.gif"
-              alt="Sprint 1 System Gif"
-            />
-          </td>
-        </tr>
-      </table>
-      <h5>Sprint 2</h5>
-      <table width="800">
-        <tr>
-          <td align="left" style="vertical-align: middle">
-            <img
-              width="400"
-              src="images/homepage/Sprint2gif.gif"
-              alt="Sprint 2 System Gif"
-            />
-          </td>
-          <td align="right" style="vertical-align: top">
-            <span width="400">
-              In sprint 2, we completed our target goal of a parallel SCARA that
-              could play basic defense by matching y-position. The main task for
-              mechanical in this sprint was fabricating the parallel SCARA and
-              new gear boxes. Our main electrical tasks were to wire the second
-              stepper motor and stepper driver into the Arduino and incorporate
-              end stop switches for homing. Additionally, we integrated a better
-              power supply with short circuit protection for safety purposes. On
-              the software side, we calculated the inverse kinematics to be able
-              to control the new arm and integrated this into our current
-              software system. We purchased a new high-frame rate camera and
-              debugged serial communication overflow issues, which led to a
-              significant reduction in latency.
-            </span>
-          </td>
-        </tr>
-      </table>
-      <h5>Sprint 3</h5>
-      <table width="800">
-        <tr>
-          <td align="left" style="vertical-align: middle">
-            <span width="400">
-              In sprint 3, we worked towards our reach goals of trajectory
-              prediction software, robust mounting, and beautification. To
-              achieve this, we calculated the velocity vector of the puck and
-              defined several different modes of behavior depending on whether
-              the puck would bounce, head back towards the player, or head
-              directly towards the robot. We built a better overhead camera
-              mount, attached the two gear boxes together and to the table,
-              integrated an E-stop button, harnessed our cables and created an
-              electrical enclosure.
-            </span>
-          </td>
-          <td align="right" style="vertical-align: middle">
-            <img
-              width="400"
-              src="images/homepage/Sprint3gif.gif"
-              alt="Sprint 3 System Gif"
-            />
-          </td>
-        </tr>
-      </table>
-    </div> -->
-
-
-	<br />
-	<br />
-
-	<!-- <div class="box container">
-		<header>
-			<h2>Photos and Videos!</h2>
-		</header>
-		<section></section>
-	</div> -->
-	<br />
-	<br />
-	<br />
-	<br />
-
-	<!-- <div class="box container">
-			<footer class="major container medium">
-				<header>
-					<h2>Photos and Videos!</h2>
-				</header>
-			</footer>
-		</div> -->
-
-	<!-- <section>
-				<header>
-					<h3>Blockquote</h3>
-				</header>
-				<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-					tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-			</section> -->
-	<!-- <section>
-				<header>
-					<h3>Divider</h3>
-				</header>
-				<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-				<hr />
-				<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-					ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-					facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-					tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-					posuere cubilia.</p>
-			</section> -->
-	<!-- <section>
-				<header>
-					<h3>Unordered List</h3>
-				</header>
-				<ul class="default">
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-				</ul>
-			</section> -->
-	<!-- <section>
-				<header>
-					<h3>Ordered List</h3>
-				</header>
-				<ol class="default">
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-					<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut
-						porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-				</ol>
-			</section> -->
-	<!-- <section>
-				<header>
-					<h3>Table</h3>
-				</header>
-				<div class="table-wrapper">
-					<table class="default">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Description</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>45815</td>
-								<td>Something</td>
-								<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-								<td>29.99</td>
-							</tr>
-							<tr>
-								<td>24524</td>
-								<td>Nothing</td>
-								<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-								<td>19.99</td>
-							</tr>
-							<tr>
-								<td>45815</td>
-								<td>Something</td>
-								<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-								<td>29.99</td>
-							</tr>
-							<tr>
-								<td>24524</td>
-								<td>Nothing</td>
-								<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-								<td>19.99</td>
-							</tr>
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan="3"></td>
-								<td>100.00</td>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-			</section>
-			<section>
-				<header>
-					<h3>Form</h3>
-				</header>
-				<form method="post" action="#">
-					<div class="row">
-						<div class="col-6 col-12-mobilep">
-							<label for="name">Name</label>
-							<input class="text" type="text" name="name" id="name" value="" placeholder="John Doe" />
-						</div>
-						<div class="col-6 col-12-mobilep">
-							<label for="email">Email</label>
-							<input class="text" type="text" name="email" id="email" value=""
-								placeholder="johndoe@domain.tld" />
-						</div>
-						<div class="col-12">
-							<label for="subject">Subject</label>
-							<input class="text" type="text" name="subject" id="subject" value=""
-								placeholder="Enter your subject" />
-						</div>
-						<div class="col-12">
-							<label for="subject">Message</label>
-							<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-						</div>
-						<div class="col-12">
-							<ul class="actions special">
-								<li><input type="submit" value="Send" /></li>
-								<li><input type="reset" value="Reset" class="alt" /></li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</section>
-		</div>
-		-->
-
-	<!-- Footer -->
-	<div id="footer">
-		<div class="container large">
-			<header class="major last">
-				<h2>About Us!</h2>
-			</header>
-			<section class="feature left">
-				<img src="images/team-photos/AmandaChang.jpeg" alt="" height="400" width="400"
-					style="vertical-align: middle" />
-				<div class="content">
-					<h3>Amanda Chang</h3>
-					<p>
-						<b>Class of 2026 <br />Electrical and Computer Engineering</b>
-						<br />Amanda is interested in electrical and software systems. She
-						worked closely with OpenCV, inverse kinematics, puck trajectory
-						prediction, and end-to-end latency reduction.
-						<br />
-						<em>achang2@olin.edu</em>
-					</p>
-				</div>
-			</section>
-			<br />
-			<section class="feature left">
-				<img src="images/team-photos/BenTarr.jpg" alt="" height="400" width="400"
-					style="vertical-align: middle" />
-				<div class="content" text-align="top">
-					<h3>Ben Tarr</h3>
-					<p>
-						<b>Class of 2026 <br />Engineering: Robotics </b> <br />
-						Ben is interested in robotics and systems integration. He worked
-						primarily on the OpenCV code and Arduino firmware, but also helped
-						out with mechanical design and electrical integration.
-						<br />
-						<em>btarr@olin.edu</em>
-					</p>
-				</div>
-			</section>
-			<br />
-			<section class="feature left">
-				<img src="images/team-photos/ElinONeill.jpg" alt="" height="400" width="400"
-					style="vertical-align: middle" />
-				<div class="content">
-					<h3>Elin O'Neill</h3>
-					<p>
-						<b>Class of 2026 <br />Engineering: Computing</b> <br />Elin is
-						interested in software, more specifically arm control code, and
-						administrative duties such as documentation and communicating
-						project progress and results.
-						<br />
-						<em>eoneill@olin.edu</em>
-					</p>
-				</div>
-			</section>
-			<br />
-			<section class="feature left">
-				<img src="images/team-photos/LilyDao.JPG" alt="" height="400" width="400"
-					style="vertical-align: middle" />
-				<div class="content">
-					<h3>Lily Dao</h3>
-					<p>
-						<b>Class of 2026 <br />Mechanical Engineering</b> <br />Lily is
-						interested in design and fabrication and worked on the majority of
-						the mechanical design for this project.
-						<br />
-						<em>ldao@olin.edu</em>
-					</p>
-				</div>
-			</section>
-			<br />
-			<section class="feature left">
-				<img src="images/team-photos/MeaganLipsman.jpg" alt="" height="400" width="400"
-					style="vertical-align: middle" />
-				<div class="content">
-					<h3>Meagan Lipsman</h3>
-					<p>
-						<b>Class of 2026 <br />Electrical and Computer Engineering</b>
-						<br />Meagan is interested in working with electrical systems and
-						components, harnessing, and project management. She served as
-						project manager for the team and worked primarily on the
-						electrical and firmware components of the project.
-						<br />
-						<em>mlipsman@olin.edu</em>
-					</p>
-				</div>
-			</section>
-
-			<footer class="major container medium">
-				<h2>Thank You!</h2>
-				<h3>Questions or Comments?</h3>
-				<p>Feel free to reach out to any of our emails!</p>
-				<!-- <ul class="actions special">
+        <footer class="major container medium">
+          <h2>Thank You!</h2>
+          <h3>Questions or Comments?</h3>
+          <p>Feel free to reach out to any of our emails!</p>
+          <!-- <ul class="actions special">
 					<li><a href="#" class="button">Join our crew</a></li>
 				</ul> -->
-			</footer>
+        </footer>
 
-			<!-- <form method="post" action="#">
+        <!-- <form method="post" action="#">
 				<div class="row">
 					<div class="col-6 col-12-mobilep">
 						<input type="text" name="name" placeholder="Name" />
@@ -566,22 +357,21 @@
 				</div>
 			</form> -->
 
-			<!-- <ul class="icons">
+        <!-- <ul class="icons">
 				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
 				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 			</ul> -->
-		</div>
-	</div>
+      </div>
+    </div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-</body>
-
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
