@@ -183,7 +183,6 @@ li a:hover:not(.active) {
 
 /* Styles for #sub-menu */
 #sub-menu {
-  display: none; /* Hide the menu by default */
   position: fixed;
   bottom: 0;
   left: 0;
@@ -220,11 +219,6 @@ li a:hover:not(.active) {
   text-decoration: none;
 }
 
-/* Display the menu when menu-toggle is checked */
-#menu-toggle:checked ~ #sub-menu {
-  display: block;
-}
-
 /* Responsive behavior */
 @media (max-width: 768px) {
   /* Show the menu icon on small screens */
@@ -237,10 +231,16 @@ li a:hover:not(.active) {
   }
 
   #sub-menu {
+    display: none;
     /* Adjust styles for small screens */
     position: absolute;
     width: 100%;
     top: 30px; /* Adjust based on menu icon size */
+  }
+
+  /* Display the menu when menu-toggle is checked */
+  #menu-toggle:checked ~ #sub-menu {
+    display: block;
   }
 }
 
