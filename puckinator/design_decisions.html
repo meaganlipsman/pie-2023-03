@@ -72,13 +72,15 @@
             <section id="process">
             <hr>
             <h5>Process</h5>
-            <p>At the beginning of the project we came together as a team and ideated on different directions our
-                project could take. From this ideation, we were able to make overall project design decisions based on
-                our learning and project goals. Namely, the main decision we made was to create a parallel SCARA . After
-                this, individuals involved in each subsection of the project (mechanical, electrical, software,
-                firmware) were able to make design decisions that best fit the project. Additionally, throughout the
-                project there were issues that surfaced that we had previously not considered. This led to us making
-                smaller design changes to mitigate these issues.</p>
+            <p>We began the project by collectively ideating on different project topics. Each of us proposed two ideas 
+                and we narrowed down on the air hockey robot because it provided the most flexibility in design and technical
+                challenge. Our biggest initial decision was to create a parallel SCARA robot, rather than a gantry system or 
+                other type of robotic arm, because we saw an effective way to iteratively build and test our setup. We would 
+                first develop firmware to control a stepper motor, software to track the puck and transform the image of the table, 
+                and a way to affix an arm to the stepper shaft before moving on to a more complex setup. Once we were successful with this,
+                we would be able to accurately reevaluate to keep ourselves on pace with our initial plans. There were many 
+                unexpected obstacles throughout the development of the Puckinator, prompting further important design decisions. 
+                The most notable ones are described below.</p>
             </section>
             <section id="mechanical">
                 <br>
@@ -88,7 +90,7 @@
                 <p>One of the largest architectural decisions in the scoping and design of this project was the use of a
                     parallel SCARA. SCARA stands for “Selective Compliance Assembly Robot Arm” — a name that dates back to
                     the SCARA’s origins in industrial manufacturing settings.</p>
-                <p>A large number of factors went into the choice of a motion system for our project, so we utilized a
+                <p>Many factors went into the choice of a motion system for our project, so we utilized a
                     decision matrix to help us make sense of everything. We assessed each potential motion system in the
                     following categories:</p>
                 <p><b>Actuator count:</b> The number of stepper motors or servos required was a major driver of cost and
@@ -114,9 +116,8 @@
                 <br>
                 <b>Nema 23 Steppers and 3:1 Gearbox</b>
                 <br>
-                <p>Before ordering any parts for our project, we experimentally determined the minimum amount of time it
-                    would take for the air hockey puck to reach a reasonable hitting distance from where a player strikes
-                    the puck using a full-size air hockey table on campus. This was found to be approximately 0.25 seconds.
+                <p>Before ordering any parts for our project, we used a real air hockey table to experimentally determine the minimum amount of time it
+                    would take for the air hockey puck to reach a reasonable hitting distance from where a player strikes. This was approximately 0.25 seconds.
                     Our arm setup at that point in time was a single arm and motor that only moved radially. From this, we
                     decided that an acceptable amount of time for a striker mounted at the end of the single arm to move
                     through its full range of motion (defined by the angle γ) would be 0.15, since the table we chose would
@@ -164,16 +165,15 @@
                     setup would have lighter arms than our initial one-arm laser cut, reducing the moment of inertia.</p>
                 <b>Size of the Air Hockey Table</b>
                 <br>
-                <p>We had two main options when deciding what air hockey table to use. We could have either ordered a small
-                    table top air hockey table from Amazon or use we could have used a full sized air hockey table that was
-                    located in one of our dorm buildings. The main factors we considering when weighing our options were
+                <p>We had two main options when deciding which air hockey table to use: a small table-top version from Amazon,
+                    or a full-size table in one of our dorm buildings. The main factors we considering when weighing our options were
                     cost, ease of use, and speed. We ended up choosing to use the mini table; here is the reasoning that
                     went into that decision: </p>
-                <p><b>Cost:</b> The mini table from Amazon, used, cost about $35 and the full sized table was technically
+                <p><b>Cost:</b> The mini table from Amazon cost about $35 while the full sized table was technically
                     free. Although the mini table cost more, it was still a very good price and was a small enough
                     percentage of our budget that we felt it was feasible to buy. </p>
                 <p><b>Ease of Use:</b> We knew that the mini table was much more accessible than the large table. We were
-                    able able to keep the mini table in our class room while we would have had to be in the dorms to work
+                    able to keep the mini table in our classroom while we would have had to be in the dorms to work
                     with the large tables. Being in the classroom meant that we could work with the rest of our peers and
                     have easy access to professors, course assistants, materials, and tools.</p>
                 <p><b>Speed:</b> A concern that we had about using the smaller table was that it would take less time for
