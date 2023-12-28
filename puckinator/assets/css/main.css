@@ -119,11 +119,9 @@ li a:hover:not(.active) {
   flex-direction: column;
   /* bottom: 0;
   left: 0;
-  height: 92%;
-  width: 170px; */
+  height: 92%; */
+  max-width: 200px;
   /* background-color: ; Adjust background color as needed */
-  width: 170 px;
-  max-width: 100%;
   color: #5b5b5b; /* Adjust text color as needed */
   padding-top: 5px;
   padding-bottom: 0px; /* Adjust padding as needed */
