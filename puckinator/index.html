@@ -25,6 +25,7 @@
   </head>
 
   <body>
+
     <nav id="top-menu">
       <ul>
         <li><a class="active" href="./index.html">Home</a></li>
@@ -41,15 +42,10 @@
     <!-- Header -->
     <div id="header">
       <!-- <span class="logo icon fa-paper-plane"></span> -->
-      <div class="image-container">
-        <img src="images/homepage/Logo Photo.jpg" alt="Puckinator Logo" />
+      <div class="image-container" style="width: 20%;">
+        <img src="images/homepage/Logo Photo.jpg" alt="puckinator logo" style="display: block; margin: 0 auto;">
       </div>
-      <!-- <h1>Puckinator.</h1> -->
       <h3>Never play air hockey alone again</h3>
-      <!-- <p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
-			<br />
-			and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>. -->
-      <!-- </p> -->
     </div>
 
     <!-- Main -->
@@ -94,51 +90,32 @@
           </div>
         </div>
       </header>
-    </div>
-    <div class="box container">
-      <h2>Design Process</h2>
-      <div style="aspect-ratio: 16/9; width: 100%">
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/q24UFTNm7LA?si=meJglEJmDU3AhOlp"
-          title="YouTube video player"
-          alt="Process of Puckinator Creation"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-    <div class="container">
-      <div class="wrap-collapsible">
-        <input id="systemoverview" class="toggle" type="checkbox" checked="" />
-        <label for="systemoverview" class="lbl-toggle">System Overview</label>
-        <div class="collapsible-content">
-          <div class="box container">
-            <div class="image-container">
-              <img
-                width="100%"
-                src="images/homepage/systemoverview.svg"
-                alt="Puckinator System Overview"
-              />
-            </div>
-          </div>
+      <div class="box container">
+        <h2>Design Process</h2>
+        <div style="aspect-ratio: 16/9; width: 100%">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/q24UFTNm7LA?si=meJglEJmDU3AhOlp"
+            title="YouTube video player"
+            alt="Process of Puckinator Creation"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="wrap-collapsible">
-        <input id="collapsible2" class="toggle" type="checkbox" checked="" />
-        <label for="collapsible2" class="lbl-toggle">Sprint Breakdown</label>
-        <div class="collapsible-content">
-          <div class="box container">
-            <h5>Sprint 1</h5>
-            <table width="800">
-              <tr>
-                <td align="left" style="vertical-align: top">
-                  <span width="400">
-                    In sprint 1, we completed our most basic MVP of a single
+      <div class="container">
+        <div class="wrap-collapsible">
+          <input id="sprintbreakdown" class="toggle" type="checkbox" checked="" />
+          <label for="sprintbreakdown" class="lbl-toggle">Sprint Breakdown</label>
+          <div class="collapsible-content">
+            <div class="box container">
+              <h2>Sprint 1</h2>
+              <section class="sprint">
+                <div class="content">
+                  <p>
+                    In sprint 1, we completed our most basic MVP of a single 
                     robotic arm that was able to play defense. We started by
                     electrically integrating our stepper motors, stepper
                     drivers, Arduino, camera, and power supply. Using OpenCV in
@@ -149,29 +126,25 @@
                     the puck. Alongside the electrical and software components
                     we also fabricated the first version of our gear box, the
                     single arm, and a prototype camera mount.
-                  </span>
-                </td>
-                <td align="right" style="vertical-align: top">
+                  </p>
+                </div>
+                <div class="content">
                   <img
-                    width="400"
-                    src="images/homepage/Sprint1gif.gif"
-                    alt="Sprint 1 System Gif"
-                  />
-                </td>
-              </tr>
-            </table>
-            <h5>Sprint 2</h5>
-            <table width="800">
-              <tr>
-                <td align="left" style="vertical-align: top">
+                      src="images/homepage/Sprint1gif.gif"
+                      alt="Sprint 1 System Gif"
+                    />
+                </div>
+                </section>
+            <h2>Sprint 2</h2>
+            <section class="sprint">
+              <div class="content">
                   <img
-                    width="400"
                     src="images/homepage/Sprint2gif.gif"
                     alt="Sprint 2 System Gif"
                   />
-                </td>
-                <td align="right" style="vertical-align: top">
-                  <span width="400">
+              </div>
+              <div class="content">
+                <p>
                     In sprint 2, we completed our target goal of a parallel
                     SCARA that could play basic defense by matching y-position.
                     The main task for mechanical in this sprint was fabricating
@@ -185,15 +158,13 @@
                     current software system. We purchased a new high-frame rate
                     camera and debugged serial communication overflow issues,
                     which led to a significant reduction in latency.
-                  </span>
-                </td>
-              </tr>
-            </table>
-            <h5>Sprint 3</h5>
-            <table width="800">
-              <tr>
-                <td align="left" style="vertical-align: top">
-                  <span width="400">
+                  </p>
+                </div>
+              </section>
+            <h2>Sprint 3</h2>
+            <section class="sprint">
+              <div class="content">
+                  <p>
                     In sprint 3, we worked towards our reach goals of trajectory
                     prediction software, robust mounting, and beautification. To
                     achieve this, we calculated the velocity vector of the puck
@@ -203,20 +174,29 @@
                     overhead camera mount, attached the two gear boxes together
                     and to the table, integrated an E-stop button, harnessed our
                     cables and created an electrical enclosure.
-                  </span>
-                </td>
-                <td align="right" style="vertical-align: top">
-                  <img
-                    width="400"
-                    src="images/homepage/Sprint3gif.gif"
-                    alt="Sprint 3 System Gif"
-                  />
-                </td>
-              </tr>
-            </table>
+                    </p>
+              </div> 
+              <div class="content">
+                <img
+                  src="images/homepage/Sprint3gif.gif"
+                  alt="Sprint 3 System Gif"
+                />
+              </div>
+            </section>
+            </div>
           </div>
         </div>
       </div>
+      <footer class="major container large">
+        <h2>System Overview</h2>
+        <div class="image-container">
+          <img
+            width="100%"
+            src="images/homepage/systemoverview.svg"
+            alt="Puckinator System Overview"
+          />
+        </div>
+      </footer>
     </div>
 
     <!-- Footer -->
@@ -322,41 +302,10 @@
           </div>
         </section>
 
-        <footer class="major container medium">
-          <h2>Thank You!</h2>
-          <h3>Questions or Comments?</h3>
-          <p>Feel free to reach out to any of our emails!</p>
-          <!-- <ul class="actions special">
-					<li><a href="#" class="button">Join our crew</a></li>
-				</ul> -->
-        </footer>
-
-        <!-- <form method="post" action="#">
-				<div class="row">
-					<div class="col-6 col-12-mobilep">
-						<input type="text" name="name" placeholder="Name" />
-					</div>
-					<div class="col-6 col-12-mobilep">
-						<input type="email" name="email" placeholder="Email" />
-					</div>
-					<div class="col-12">
-						<textarea name="message" placeholder="Message" rows="6"></textarea>
-					</div>
-					<div class="col-12">
-						<ul class="actions special">
-							<li><input type="submit" value="Send Message" /></li>
-						</ul>
-					</div>
-				</div>
-			</form> -->
-
         <!-- <ul class="icons">
-				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-				<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-			</ul> -->
+          <li><a href="https://github.com/amandalchang/puckinator/blob/main/puckinator.py" class="icon brands fa-github"><span class="label">Github</span></a></li>
+        </ul> -->
+        <!-- it wont hecking center ARRHGHHH -->
       </div>
     </div>
 
