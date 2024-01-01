@@ -183,6 +183,7 @@
                     would be able to move our arm fast enough to be able to play the game how we intended. </p>
                 </section>
             <section id="electrical">
+                <br>
                 <h5>Electrical</h5>
                 <b>Camera Choice</b>
                 <br>
@@ -226,8 +227,7 @@
                 found in the documentation of FlexyStepper).
 <pre><code class="cpp">void loop() {
 while (Serial.available() > 0) {
-    processIncomingByte(Serial.read());
-    // read the first byte in the serial buffer
+    processIncomingByte(Serial.read());  // read the first byte in the serial buffer
 }
 
 if (!stepper1.motionComplete()) {
